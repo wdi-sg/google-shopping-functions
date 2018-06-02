@@ -24,17 +24,17 @@ var getItemsByBrand = function(items, brand) {
 var getItemsByAuthor = function(items, author) {
 	var searchArr = [];
 	for (var i = 0; i < items.length; i++) {
-		if (items[i].product.author.name.includes(author)) { // !!! ask: why when use toLowerCase(), will return false
+		if (items[i].product.author.name.toLowerCase().includes(author.toLowerCase())) { // !!! SOLVED! Cause I didn't lowercase author!! ask: why when use toLowerCase(), will return false. 
 			searchArr.push(items[i]);
 		};
 	};
 	return searchArr;
 };
 
-// console.log(getItemsByAuthor(getItems(), 'pictureline.com')); //check result
+// console.log(getItemsByAuthor(getItems(), "pictureline.com")); //check result
 
 // --- Part 4
-var getAvailability = function(items) {
+var getAvailableProducts = function(items) {
 	var searchArr = [];
 	for (var i = 0; i < items.length; i++) {
 		if (items[i].product.inventories[0].availability.toLowerCase() === "instock") {
@@ -49,13 +49,13 @@ var getAvailability = function(items) {
 // --- Part 5
 console.log(getItemsByBrand( getItems() , 'Sony' ));
 
-console.log(getItemsByBrand( getAvailability ( getItems() ) , "Sony"));
+console.log(getItemsByBrand( getAvailableProducts ( getItems() ) , "Sony"));
 
-console.log(getItemsByAuthor( getAvailability ( getItems() ) , "eBay"));
+console.log(getItemsByAuthor( getAvailableProducts ( getItems() ) , "eBay"));
 
 //brand by nikon, author is ebay
-console.log(getItemsByAuthor(getItemsByBrand(getItems(), "Nikon"), "eBay"));
-console.log(getItemsByBrand(getItemsByAuthor(getItems(), "eBay") , "Nikon")); // same same
+console.log(getItemsByAuthor(getItemsByBrand(getItems(), "Nikon"), "eBay")); 
+// console.log(getItemsByBrand(getItemsByAuthor(getItems(), "eBay") , "Nikon")); // same same
 
 
 
