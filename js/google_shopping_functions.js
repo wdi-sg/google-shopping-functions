@@ -13,8 +13,22 @@
 
 // output item count using the getItemsCount function
 //console.log('Item Count: ' + getItemsCount(data));
-
+var compareString;
 
 function getItems(objectData) {
   return objectData.items;
+}
+
+function getItemsByBrand(items, brand) {
+  var returnArray = [];
+  for (i in items) {
+    compareString = items[i].product.brand;
+    if (compareString === brand ) {
+      returnArray.push(items[i]);
+    }
+  }
+  if (returnArray.length > 0)
+    return returnArray;
+  else
+    return 'Nothing found';
 }

@@ -1,1 +1,12 @@
-console.log(getItems(products))
+var items = getItems(products);
+var searchBrands = ['Sony', 'Canon', 'Nikon', 'Panasonic'];
+
+console.log('This is the test for getItems(objectData)');
+console.log(items);
+console.log('');
+
+console.log('This is the test for getItemsByBrand(items, brand)');
+for (i in searchBrands)
+  console.log(getItemsByBrand(items, searchBrands[i]));
+
+console.log('Search term = Nokia : ' + getItemsByBrand(items, 'Nokia'));
