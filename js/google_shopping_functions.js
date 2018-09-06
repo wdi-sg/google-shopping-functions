@@ -1,17 +1,12 @@
+// REMEMBER: data should be passed in to the function as arguments and out as a return value.
+// DO NOT access/modify variables defined outside of the function.
 
-/*
- * example function called getItemsCount
- * input: accepts full item data
- * output: returns the length of the items array
- */
-function getItemsCount(itemData) {
-  return itemData.items.length;
+// 1.) getItems(objectData)
+// input: json object
+// returns: an array of items
+// Create a function called getItems that simply returns the items array from the google product object.
+
+function getItems (itemData) {
+  return itemData.items;
 }
-
-/*
- * Define and use your functions here
- */
-
-// output item count using the getItemsCount function
-console.log('Item Count: ' + getItemsCount(data));
 
