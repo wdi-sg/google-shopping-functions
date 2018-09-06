@@ -20,11 +20,10 @@ function getItems (itemData) {
 function getItemsByBrand (items, brandName) {
 
   var brandArray = [];
-  var brandNameCase = brandName.toLowerCase()
 
   for (var i = 0; i < items.length; i++) {
 
-    if (items[i].product.brand.toLowerCase() === brandNameCase) {
+    if (items[i].product.brand.toLowerCase() === brandName.toLowerCase() ) {
 
       brandArray.push(items[i]);
 
@@ -43,11 +42,10 @@ function getItemsByBrand (items, brandName) {
 function getItemsByAuthor (items, author) {
 
   var authorArray = [];
-  var authorCase = author.toLowerCase()
 
   for (var i = 0; i < items.length; i++) {
 
-    if (items[i].product.author.name.toLowerCase().includes(authorCase)) {
+    if (items[i].product.author.name.toLowerCase().includes(author.toLowerCase())) {
 
       authorArray.push(items[i]);
 
@@ -76,6 +74,41 @@ function getAvailableProducts (items) {
   }
   return availableArray;
 }
+
+// a.The number of product items
+
+function totalItems (items) {
+  return items.length;
+}
+
+// b.The country of each item
+
+function itemCountries (items) {
+
+  var countries = [];
+
+  for (var i = 0; i < items.length; i++) {
+    countries.push(items[i].product.country);
+  }
+
+  return countries;
+}
+
+// c.Total price of all inventory
+
+function totalInvPrice (items) {
+
+  var sum = 0
+
+  for (var i = 0; i < items.length; i++) {
+    sum += items[i].product.inventories[0].price;
+  }
+
+  return sum;
+}
+
+// d.Search for one of the things above
+
 
 
 
