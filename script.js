@@ -5,7 +5,9 @@
 
 // console.log(getAvailableProducts(sony));
 
-// console.log(getItemsByAuthor(getItems(products), "Adorama Camera"));
+// var adorama = getItemsByAuthor(getItems(products), "Adorama Camera");
+
+// console.log(getAvailableProducts(adorama));
 
 // var nikon = getItemsByBrand(getItems(products), "Nikon");
 
