@@ -17,19 +17,15 @@
 var allItems = getItems(products);
 
 // All items made by Sony.
-
-console.log( getItemsByBrand(allItems,"Sony") );
+console.log ( getItemsByBrand(allItems,"Sony") );
 
 // All items made by Sony that are available.
-
-console.log( getItemsByBrand(getAvailableProducts(allItems),"Sony") );
+console.log ( getAvailableProducts( getItemsByBrand(allItems,"Sony") ) );
 
 // All available items by the author "Adorama Camera"
-
 console.log ( getItemsByAuthor(allItems,"Adorama Camera") );
 
 // All items made by Nikon with the author eBay.
-
 console.log ( getItemsByAuthor(getItemsByBrand(allItems,"Nikon"),"eBay") );
 
 
