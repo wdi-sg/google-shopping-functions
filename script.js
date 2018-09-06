@@ -1,2 +1,2 @@
 
-console.log(getItems(products))
+console.log(getItemsByBrand(getItems(products), "canoN"))
