@@ -56,17 +56,18 @@ else if (choice === 3) {
 }
 else if (choice === 4) {
   var choice2 = prompt("Which criteria would you like to search by?\n(1) Brand name\n(2) Author name\n(3) Available items").toLowerCase();
+
+  if (choice2 === "1" || choice2.includes("brand")) {
+    console.log( getItemsByBrand(allItems,prompt("Which brand?")) );
+  }
+  else if (choice2 === "2" || choice2.includes("author")) {
+    console.log( getItemsByAuthor(allItems,prompt("Which author?")) );
+  }
+  else if (choice2 === "3" || choice3.includes("available")) {
+    console.log( getAvailableProducts(allItems) );
+  }
 }
 
-if (choice2 === "1" || choice2.includes("brand")) {
-  console.log( getItemsByBrand(allItems,prompt("Which brand?")) );
-}
-else if (choice2 === "2" || choice2.includes("author")) {
-  console.log( getItemsByAuthor(allItems,prompt("Which author?")) );
-}
-else if (choice2 === "3" || choice3.includes("available")) {
-  console.log( getAvailableProducts(allItems) );
-}
 
 
 
