@@ -107,4 +107,3 @@ var nikonNeBay = function () {
 console.log(nikonNeBay());	
 
 
-
