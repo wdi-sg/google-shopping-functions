@@ -19,3 +19,17 @@ var getItemsByBrand = function(productsArray, brand){
 
 var brandArray = getItemsByBrand(productsArray, "canon");
 console.log(brandArray);
+
+//3
+var getItemsByAuthor = function(items, author){
+  var authorArray = [];
+  for(var i = 0; i<productsArray.length; i++){
+    if(author.toLowerCase() === productsArray[i].product.author.name.toLowerCase()){
+      authorArray.push(productsArray[i]);
+    }
+  }
+  return authorArray;
+}
+
+var authorArray = getItemsByAuthor(productsArray, "Target");
+console.log(authorArray);
