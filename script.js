@@ -33,3 +33,17 @@ var getItemsByAuthor = function(items, author){
 
 var authorArray = getItemsByAuthor(productsArray, "Target");
 console.log(authorArray);
+
+//4
+var getAvailableProducts = function(items){
+  var availableProducts = [];
+  for(var i = 0; i<productsArray.length; i++){
+    if(productsArray[i].product.inventories[0].availability.toLowerCase() === "instock"){
+      availableProducts.push(productsArray[i]);
+    }
+  }
+  return availableProducts;
+}
+
+var availableProducts = getAvailableProducts(productsArray);
+console.log(availableProducts);
