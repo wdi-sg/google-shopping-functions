@@ -3,8 +3,8 @@ var getItems = function(productData){
   return productData.items; //RETURNS array of items
 }
 
-var productsArray = getItems(products); //INPUTS the 'thing' containing the items
-console.log(productsArray);
+//var productsArray = getItems(products); //INPUTS the 'thing' containing the items
+//console.log(productsArray);
 
 //2
 var getItemsByBrand = function(productsArray, brand){
@@ -17,8 +17,8 @@ var getItemsByBrand = function(productsArray, brand){
   return brandArray;
 }
 
-var brandArray = getItemsByBrand(productsArray, "canon");
-console.log(brandArray);
+//var brandArray = getItemsByBrand(productsArray, "canon");
+//console.log(brandArray);
 
 //3
 var getItemsByAuthor = function(items, author){
@@ -31,8 +31,8 @@ var getItemsByAuthor = function(items, author){
   return authorArray;
 }
 
-var authorArray = getItemsByAuthor(productsArray, "Target");
-console.log(authorArray);
+//var authorArray = getItemsByAuthor(productsArray, "Target");
+//console.log(authorArray);
 
 //4
 var getAvailableProducts = function(items){
@@ -45,5 +45,34 @@ var getAvailableProducts = function(items){
   return availableProducts;
 }
 
+//var availableProducts = getAvailableProducts(productsArray);
+//console.log(availableProducts);
+
+//5
+//All items made by Sony.
+/*
+var productsArray = getItems(products);
+var sonyBrandArray = getItemsByBrand(productsArray, "Sony");
+console.log(sonyBrandArray);
+*/
+
+//All items made by Sony that are available.
+/*
+var productsArray = getItems(products);
 var availableProducts = getAvailableProducts(productsArray);
-console.log(availableProducts);
+var availableSonyArray = getItemsByBrand(availableProducts, "Sony");
+console.log(availableSonyArray);
+*/
+
+//All available items by the author "Adorama Camera"
+/*
+var productsArray = getItems(products);
+var availableAdoramaArray = getItemsByAuthor(productsArray, "Adorama Camera");
+console.log(availableAdoramaArray);
+*/
+
+//All items made by Nikon with the author eBay.
+var productsArray = getItems(products);
+var nikonBrandArray = getItemsByBrand(productsArray, "Nikon");
+var nikonEbayArray = getItemsByAuthor(nikonBrandArray, "Overstockdigital")
+console.log(nikonEbayArray);
