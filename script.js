@@ -1,0 +1,2 @@
+getItemsCount(products)
+
