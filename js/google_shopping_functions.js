@@ -15,13 +15,10 @@
  //1) Create a function called getItems that simply returns the items
  //array from the google product object.
 
- var allItems = [];
 
 var getItems = function (productAll){
-  for (var i =0; i < productAll.items.length; i++) {
-    allItems.push(productAll.items[i]);
-  }
-  return allItems;
+
+  return productAll.items;
 }
 
 // output item count using the getItemsCount function
@@ -32,11 +29,13 @@ var getItems = function (productAll){
 //2) Create a function called getItemsByBrand that takes an item
 //array returns a new array of all items of a specified brand.
 
-var getItemsByBrand = function (brandName){
+var getItemsByBrand = function (items, brandName){
+
   var itemsName = [];
-for (var i=0; i<allItems.length; i++){
-if (allItems[i].product.brand === brandName ){
-itemsName.push(allItems[i].product);
+
+for (var i=0; i<items.length; i++){
+if (items[i].product.brand === brandName ){
+itemsName.push(items[i]);
 }
 }return itemsName;
 }
@@ -45,11 +44,13 @@ itemsName.push(allItems[i].product);
 //3) Create a function called getItemsByAuthor that takes an item
 //array and returns a new array of all items by a specified author.
 
-var getItemsByAuthor = function (authorName){
+var getItemsByAuthor = function (items, authorName){
+
 var authorsList = [];
-for (var i=0; i<allItems.length; i++){
-  if (allItems[i].product.author.name === authorName){
-    authorsList.push(allItems[i].product);
+
+for (var i=0; i<items.length; i++){
+  if (items[i].product.author.name.includes(authorName) ){
+    authorsList.push(items[i]);
   }
 }return authorsList;
 }
@@ -59,16 +60,23 @@ for (var i=0; i<allItems.length; i++){
 //and returns an array containing all of the available products
 //(an available product is one with at least one availability of "inStock" in the inventories array)
 
- var availableProds = [];
 
-var getAvailableProducts = function(stockStatus){
-  for (var i=0; i<allItems.length; i++){
-    if (allItems[i].product.inventories[0].availability === stockStatus){
-availableProds.push(allItems[i].product);
+var getAvailableProducts = function(items){
+
+  var availableProds = [];
+
+  for (var i=0; i<items.length; i++){
+    var allAvail = items[i].product.inventories[0].availability;
+    if (allAvail.toLowerCase() === "instock"){
+availableProds.push(items[i]);
     }
 } return availableProds;
 }
 
+
+var getItemsCount = function (items){
+  return items.length;
+}
 
 
 
