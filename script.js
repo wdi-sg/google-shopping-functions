@@ -58,10 +58,21 @@ else if (choice === 4) {
   var choice2 = prompt("Which criteria would you like to search by?\n(1) Brand name\n(2) Author name\n(3) Available items").toLowerCase();
 
   if (choice2 === "1" || choice2.includes("brand")) {
-    console.log( getItemsByBrand(allItems,prompt("Which brand?")) );
+
+    var choice2brand = getItemsByBrand(allItems,prompt("Which brand?"));
+    console.log(choice2brand);
+
+    if (choice2brand.length === 0) {
+      console.log ("Sorry, no results were found.");
+    }
   }
   else if (choice2 === "2" || choice2.includes("author")) {
-    console.log( getItemsByAuthor(allItems,prompt("Which author?")) );
+    var choice2author = getItemsByAuthor(allItems,prompt("Which author?"))
+    console.log(choice2author);
+
+    if (choice2author.length === 0) {
+      console.log ("Sorry, no results were found.");
+    }
   }
   else if (choice2 === "3" || choice3.includes("available")) {
     console.log( getAvailableProducts(allItems) );
