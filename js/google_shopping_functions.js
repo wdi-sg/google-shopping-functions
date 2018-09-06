@@ -2,6 +2,7 @@ var compareString;
 var returnArray;
 var inventories, countries, sum;
 
+//takes in array to verify its length to determine if search was sucessful.
 function checkArrayLength(array) {
   if (array.length > 0)
     return array;
@@ -77,5 +78,5 @@ function getTotalPrice(items) {
       sum += inventories[j].price;
     }
   }
-  return sum.toFixed(2);
+  return '$' + sum.toFixed(2);
 }
