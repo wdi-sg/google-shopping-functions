@@ -84,36 +84,36 @@ function getAvailableProducts(items){
 // search(searchId);
 
 //part 8
-// var noOfProductItems = prompt('1. the number of product items \n 2. The country of each item \n 3. Total price of all invetory \n 4. Search for one of the things above');
+var noOfProductItems = prompt('1. the number of product items \n 2. The country of each item \n 3. Total price of all invetory \n 4. Search for one of the things above');
 
-// function noOfItems(items){
-//   console.log(items.length);
-//   return items.length;
-// }
-// function countryOfItem(items){
-//   for (var i =0; i<items.length;i++){
-//     console.log(items[i].product.title+" from "+items[i].product.country);
-//   }
-// }
-// function totalPriceOfAllInventry(itemsAvail){
-//   var totalPrice =0;
-//   for (var i =0;i<itemsAvail.length;i++){
-//     totalPrice += itemsAvail[i].product.inventories[0].price;
-//   }
-//   console.log(totalPrice);
-//   return totalPrice;
-// }
+function noOfItems(items){
+  console.log(items.length);
+  return items.length;
+}
+function countryOfItem(items){
+  for (var i =0; i<items.length;i++){
+    console.log(items[i].product.title+" from "+items[i].product.country);
+  }
+}
+function totalPriceOfAllInventry(itemsAvail){
+  var totalPrice =0;
+  for (var i =0;i<itemsAvail.length;i++){
+    totalPrice += itemsAvail[i].product.inventories[0].price;
+  }
+  console.log(totalPrice);
+  return totalPrice;
+}
 
-// function bamBam(a){
-//   if (a == 1){
-//     noOfItems(items);
-//   }
-//   else if (a == 2){
-//     countryOfItems(items);
-//   }
-//   else if (a == 3){
-//     totalPriceOfAllInventry(itemsAvail);
-//   }
-// }
+function bamBam(a){
+  if (a == 1){
+    noOfItems(items);
+  }
+  else if (a == 2){
+    countryOfItem(items);
+  }
+  else if (a == 3){
+    totalPriceOfAllInventry(itemsAvail);
+  }
+}
 
-// bamBam(noOfProductItems);
+bamBam(noOfProductItems);
