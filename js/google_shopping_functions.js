@@ -10,7 +10,19 @@ function getItemsCount(itemData) {
 
 /*
  * Define and use your functions here
- */
+*/
+function getItems(objectData)
+{
+	for(1=0; 1< objectData.items.length; i++)
+	{
+		return objectData.items[i];
+	}
+}
+
+getItems(products);
+
+
+
 
 // output item count using the getItemsCount function
 console.log('Item Count: ' + getItemsCount(data));
