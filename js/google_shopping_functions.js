@@ -32,3 +32,37 @@ function getItemsByBrand (items, brandName) {
   }
   return brandArray;
 }
+
+// 3.) getItemsByAuthor(items, author)
+// input: an array of items, a string of an author to filter with
+// returns: an array of items (of a specific author)
+// Create a function called getItemsByAuthor that takes an item array and returns a new array of all items by a specified author.
+//
+// Test this function by searching for Target, CDW, eBay
+
+function getItemsByAuthor (items, author) {
+
+  var authorArray = [];
+  var authorCase = author.toLowerCase()
+
+  for (var i = 0; i < items.length; i++) {
+
+    if (items[i].product.author.name.toLowerCase().includes(authorCase)) {
+
+      authorArray.push(items[i]);
+
+    }
+  }
+  return authorArray;
+}
+
+
+
+
+
+
+
+
+
+
+
