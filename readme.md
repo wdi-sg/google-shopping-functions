@@ -1,6 +1,6 @@
 # JavaScript Functions
 
-Using the google shoping data used before (also included in this repository) create some useful functions to answer the following questions.
+Using the google shopping data used before (also included in this repository) create some useful functions to answer the following questions.
 
 **REMEMBER:** data should be passed in to the function as arguments and out as a return value. DO NOT access/modify variables defined outside of the function.
 
@@ -8,7 +8,7 @@ Using the google shoping data used before (also included in this repository) cre
 
 * Fork and clone this repository
 * Start creating functions in `js/google_shopping_functions.js`
-* Run your functions in `script.js` 
+* Run your functions in `script.js`
 
 ## Deliverables
 
