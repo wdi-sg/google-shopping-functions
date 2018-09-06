@@ -24,14 +24,14 @@ var getItemsByBrand = function(productsArray, brand){
 var getItemsByAuthor = function(items, author){
   var authorArray = [];
   for(var i = 0; i<productsArray.length; i++){
-    if(author.toLowerCase() === productsArray[i].product.author.name.toLowerCase()){
+    if(productsArray[i].product.author.name.includes(author)){
       authorArray.push(productsArray[i]);
     }
   }
   return authorArray;
 }
 
-//var authorArray = getItemsByAuthor(productsArray, "Target");
+//var authorArray = getItemsByAuthor(productsArray, "eBay");
 //console.log(authorArray);
 
 //4
@@ -72,7 +72,8 @@ console.log(availableAdoramaArray);
 */
 
 //All items made by Nikon with the author eBay.
+
 var productsArray = getItems(products);
 var nikonBrandArray = getItemsByBrand(productsArray, "Nikon");
-var nikonEbayArray = getItemsByAuthor(nikonBrandArray, "Overstockdigital")
+var nikonEbayArray = getItemsByAuthor(nikonBrandArray, "eBay")
 console.log(nikonEbayArray);
