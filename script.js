@@ -44,8 +44,8 @@ var question, options;
 console.log('');
 console.log('User Search Results:');
 question = 'Please enter an option: \n';
-options = '1. Show item availability \n2. Search author name\n3. Search item brand\n4. Show total item count\n5. Show item countries\n6. Show total price';
-userPrompt = parseInt(prompt(question + options, '1, 2, 3, 4, 5, 6'));
+options = '1. Show item availability \n2. Search author name\n3. Search item brand\n4. Show total item count\n5. Show item countries\n6. Show total price of all items\n7. Get price of items by brand';
+userPrompt = parseInt(prompt(question + options, '1, 2, 3, 4, 5, 6, 7'));
 
 switch (userPrompt) {
   case 1:
@@ -68,6 +68,10 @@ switch (userPrompt) {
   case 6:
     console.log(getTotalPrice(items));
     break;
+  case 7:
+    userPref = prompt("Enter the brand's name:");
+    console.log(getTotalPrice(getItemsByBrand(items, userPref)));
+    break
   default:
     console.log('Invalid input.')
 
