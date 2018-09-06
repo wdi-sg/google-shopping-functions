@@ -14,21 +14,39 @@
 // output item count using the getItemsCount function
 //console.log('Item Count: ' + getItemsCount(data));
 var compareString;
+var returnArray = [];
+var result;
+
+function checkArrayLength(array) {
+    if (array.length > 0)
+      return array;
+    else
+      return 'Nothing found';
+}
 
 function getItems(objectData) {
   return objectData.items;
 }
 
 function getItemsByBrand(items, brand) {
-  var returnArray = [];
+  returnArray = [];
   for (i in items) {
     compareString = items[i].product.brand;
     if (compareString === brand ) {
       returnArray.push(items[i]);
     }
   }
-  if (returnArray.length > 0)
-    return returnArray;
-  else
-    return 'Nothing found';
+  result = checkArrayLength(returnArray);
+  return result;
+}
+
+function getItemsByAuthor(items, author) {
+  returnArray = [];
+  for (i in items) {
+    compareString = items[i].product.author.name.toLowerCase();
+    if (compareString.indexOf(author.toLowerCase()) !== -1)
+      returnArray.push(items[i]);
+  }
+  result = checkArrayLength(returnArray);
+  return result;
 }
