@@ -1,17 +1,45 @@
+//part1
+var getItems = function(products) {
+  return products.items;
+};
 
-/*
- * example function called getItemsCount
- * input: accepts full item data
- * output: returns the length of the items array
- */
-function getItemsCount(itemData) {
-  return itemData.items.length;
+
+
+//part2
+var getItemsByBrand = function(items, brand) {
+  var itemsByBrand = [];
+  for (var i = 0; i < items.length; i++) {
+    if(items[i].product.brand === "Canon") {
+      itemsByBrand.push(items[i]);
+    }
+  }
+  return itemsByBrand;
+};
+
+
+
+
+//part3
+//stuck here, no output
+var getItemsByAuthor = function(items, author) {
+  var itemsByAuthor = [];
+  for (var i = 0; i < items.length; i++) {
+    if(items[i].product.author.name.includes(author)) {
+      itemsByAuthor.push(items[i]);
+    }
+  }
+return itemsByAuthor;
 }
 
-/*
- * Define and use your functions here
- */
 
-// output item count using the getItemsCount function
-console.log('Item Count: ' + getItemsCount(data));
 
+//part4
+var getAvailableProducts = function(items) {
+  var availableProducts = [];
+  for (i = 0; i < items.length; i++) {
+    if(items[i].product.inventories[0].availability == "inStock") {
+      availableProducts.push(items[i]);
+    }
+  }
+  return availableProducts;
+}
