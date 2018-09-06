@@ -13,9 +13,9 @@
 
 // output item count using the getItemsCount function
 //console.log('Item Count: ' + getItemsCount(data));
-var compareString;
+var compareString, result;
 var returnArray = [];
-var result;
+var inventories;
 
 function checkArrayLength(array) {
     if (array.length > 0)
@@ -31,8 +31,8 @@ function getItems(objectData) {
 function getItemsByBrand(items, brand) {
   returnArray = [];
   for (i in items) {
-    compareString = items[i].product.brand;
-    if (compareString === brand ) {
+    compareString = items[i].product.brand.toLowerCase();
+    if (compareString === brand.toLowerCase()) {
       returnArray.push(items[i]);
     }
   }
@@ -49,4 +49,20 @@ function getItemsByAuthor(items, author) {
   }
   result = checkArrayLength(returnArray);
   return result;
+}
+
+function getAvailableProducts(items) {
+    returnArray = [];
+
+    for (i in items) {
+      inventories = items[i].product.inventories;
+
+      for (j in inventories) {
+        compareString = inventories[j].availability;
+        if (compareString === 'inStock')
+          returnArray.push(items[i]);
+      }
+    }
+    result = checkArrayLength(returnArray);
+    return result;
 }
