@@ -56,9 +56,26 @@ function getItemsByAuthor (items, author) {
   return authorArray;
 }
 
+// 4.) getAvailableProducts(items)
+// input: an array of items
+// returns: an array of items (that are available)
+// Create function called getAvailableProducts that takes an item array and returns an array containing all of the available products
+// (an available product is one with at least one availability of "inStock" in the inventories array)
 
+function getAvailableProducts (items) {
 
+  var availableArray = [];
 
+  for (var i = 0; i < items.length; i++) {
+
+    if (items[i].product.inventories[0].availability.includes("inStock")) {
+
+      availableArray.push(items[i]);
+
+    }
+  }
+  return availableArray;
+}
 
 
 
