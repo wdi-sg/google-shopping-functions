@@ -1,27 +1,38 @@
-/*
-All items made by Sony.
 
-All items made by Sony that are available.
+// var itemSony = getItemsByBrand(getItems(products),"Sony")
+// console.log(itemSony)
 
-All available items by the author "Adorama Camera"
+// var itemSony = getItemsByBrand(getItems(products),"Sony")
+// var itemSonyAvailable = getAvailableProducts(itemSony)
+// console.log(itemSonyAvailable)
 
-All items made by Nikon with the author eBay.
+// var itemAdorama = getItemsByAuthor(getItems(products),"Adorama Camera")
+// var itemAdoramaAvailable = getAvailableProducts(itemAdorama)
+// console.log(itemAdoramaAvailable)
 
-*/
-var itemSony = getItemsByBrand(getItems(products),"Sony")
-console.log(itemSony)
+// var itemNikon = getItemsByBrand(getItems(products),"Nikon")
+// var itemNikonEbay = getItemsByAuthor(itemAdorama,"eBay")
+// console.log(itemNikonEbay)
 
-var itemSony = getItemsByBrand(getItems(products),"Sony")
-var itemSonyAvailable = getAvailableProducts(itemSony)
-console.log(itemSonyAvailable)
+var actualSearch =prompt("Enter 1 for number 2 for country and 3 for total")
 
-var itemAdorama = getItemsByAuthor(getItems(products),"Adorama Camera")
-var itemAdoramaAvailable = getAvailableProducts(itemAdorama)
-console.log(itemAdoramaAvailable)
 
-var itemNikon = getItemsByBrand(getItems(products),"Nikon")
-var itemNikonEbay = getItemsByAuthor(itemAdorama,"eBay")
-console.log(itemNikonEbay)
+if (actualSearch === "1"){
+  console.log(getItems(products))
+}
+else if(actualSearch === "2"){
+  console.log(getItemsByCountry(products))
+}
+else if(actualSearch === "3"){
+  console.log(getTotalPrice(products))
+}
+else{console.log("Invalid Entry : Please Enter 1 for number 2 for country and 3 for total")
+}
+
+
+
+
+
 
 
 

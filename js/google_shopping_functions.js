@@ -8,7 +8,7 @@ Purpose:Functions
 //console.log(products) ;
 
 
-//////Problem 1
+//total number item
 var getItems = function(my_array){
 
   var arr=[]
@@ -22,7 +22,7 @@ var getItems = function(my_array){
 
 
 
-///////Problem 2
+//Brand
 var getItemsByBrand = function(my_array,brands) {
 
   var arr=[]
@@ -36,7 +36,7 @@ var getItemsByBrand = function(my_array,brands) {
   return arr
 }
 
-//////Problem 3
+//Author
 var getItemsByAuthor = function(my_array,author){
 
   var arr=[]
@@ -50,7 +50,7 @@ return arr
 
 }
 
-//////Problem 4
+//Availability
 var getAvailableProducts=function(my_array){
 
     var arr=[]
@@ -62,3 +62,41 @@ var getAvailableProducts=function(my_array){
     }
     return arr
 }
+
+//Country
+var getItemsByCountry=function(my_array){
+
+  var arr=[]
+
+  for( var i =0 ; i < products.items.length ; i++ ){
+    arr.push(my_array.items[i].product.country);
+  }
+
+  return arr
+}
+
+//individual price
+var getTotalPrice=function(my_array){
+
+  var arr=[]
+
+  for(var i = 0 ; i < products.items.length ; i++){
+    arr.push(my_array.items[i].product.inventories[0].price)
+  }
+
+  var sum = 0
+
+  for(var i =0 ; i<products.items.length ; i++){
+    sum += arr[i]
+  }
+
+  return sum
+}
+
+
+
+
+
+
+
+
