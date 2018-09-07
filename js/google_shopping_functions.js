@@ -54,18 +54,21 @@ var getCountry = function(short_item){
   var dup_short_item_country = [];
   for (var i = 0; i < short_item.length; i++){
       short_item_country.push(short_item[i].product.country);
+
+      /* To account for duplicates in the country array, uncomment the block comment.
       for (var j = 0; j < short_item_country.length; j++){
         if (short_item_country[j] === short_item_country[j + 1]){
-          dup_short_item_country = short_item_country[j];
+            dup_short_item_country = short_item_country[j];
         }
-        //else if (short_item_country[j] != short_item_country[j + 1]){
-          //dup_short_item_country.push(short_item_country[j]);
-        //}
-        //unsure how to proceed with the non-duplicates.
+        else if (short_item_country[j] != short_item_country[j + 1]){
+          dup_short_item_country.push(short_item_country[j]);
+        }
+        unsure how to proceed with the non-duplicates.
 
       }
+      */
   }
-  console.log(dup_short_item_country)
+  console.log(short_item_country);
 }
 
 
