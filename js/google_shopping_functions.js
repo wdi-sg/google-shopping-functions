@@ -43,7 +43,7 @@ var getItemsByAuthor = function(my_array,author){
       arr.push(my_array[i]);
     }
   }
-return arr
+  return arr
 
 }
 
