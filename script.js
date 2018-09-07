@@ -28,6 +28,3 @@
 // }
 // else{console.log("Invalid Entry : Please Enter 1 for number 2 for country and 3 for total")
 // }
-
-
-
