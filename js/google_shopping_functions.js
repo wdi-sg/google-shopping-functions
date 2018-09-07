@@ -7,7 +7,6 @@ Purpose:Functions
 //printing whole product line
 //console.log(products) ;
 
-
 //total number item
 var getItems = function(my_array){
 
@@ -19,8 +18,6 @@ var getItems = function(my_array){
 
   return arr
 }
-
-
 
 //Brand
 var getItemsByBrand = function(my_array,brands) {
