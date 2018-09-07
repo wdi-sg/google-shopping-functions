@@ -32,10 +32,12 @@ var getItems = function (productAll){
 var getItemsByBrand = function (items, brandName){
 
   var itemsName = [];
+var count = 0;
 
 for (var i=0; i<items.length; i++){
 if (items[i].product.brand === brandName ){
 itemsName.push(items[i]);
+count ++;
 }
 }return itemsName;
 }
@@ -49,7 +51,7 @@ var getItemsByAuthor = function (items, authorName){
 var authorsList = [];
 
 for (var i=0; i<items.length; i++){
-  if (items[i].product.author.name.includes(authorName) ){
+  if (items[i].product.author.name.toLowerCase().includes(authorName) ){
     authorsList.push(items[i]);
   }
 }return authorsList;
@@ -76,6 +78,30 @@ availableProds.push(items[i]);
 
 var getItemsCount = function (items){
   return items.length;
+}
+
+var getCountry = function (items, countryName){
+  var countryNames = [];
+for (var i=0;i<items.length; i++){
+  if(items[i].product.country.toLowerCase().includes(countryName)){
+    countryNames.push(items[i]);
+  }
+} return countryNames;
+}
+
+
+
+var getPrice = function(items){
+  var totalPriceArr = [];
+  var sum = 0;
+  for (var i=0; i<items.length; i++){
+
+    if(items[i].product.inventories[0].price !== null){
+    totalPriceArr.push(items[i].product.inventories[0].price);
+    var totalPrice = sum += totalPriceArr[i];
+  }
+  } return totalPrice.toFixed(2);
+
 }
 
 
