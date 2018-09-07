@@ -1,17 +1,55 @@
-
-/*
- * example function called getItemsCount
- * input: accepts full item data
- * output: returns the length of the items array
- */
-function getItemsCount(itemData) {
-  return itemData.items.length;
+// // //Part 1
+var getItems = function() {
+  return product.items
 }
 
-/*
- * Define and use your functions here
- */
+// //Part 2
+var getItemsByBrand = function(items,brand) {
+var brandArray = [];
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].items.product.brand.toLowerCase() === brand.toLowerCase()) {
+    brandArray.push(items[i]);
+  }
+}
 
-// output item count using the getItemsCount function
-console.log('Item Count: ' + getItemsCount(data));
+ return brandArray;
+};
+
+// //Part 3
+var getItemsByAuthor = function(items, author) {
+var authorArray = [];
+  for (var i = 0; i < items.length; i++) {
+    if (items[i].items.author.name.includes(author[i])) {
+    authorArray.push(items[i]);
+  }
+ }
+return authorArray;
+};
+
+//Part 4
+var getAvailableProducts = function(items) {
+// var availableProducts = [];
+for (var i = 0; i < item.length; i++) {
+  if (items[i].product.inventories[0].availability === "inStock") {
+  items.push([i])
+  }
+  return availableProducts;
+ }
+};
+
+//Part 5
+
+//All items made by Sony
+var allItems = getItems(products);
+console.log(getItemsByBrand(allItems, "Sony"));
+
+//All items made by Sony that are available
+console.log(getItemsByBrand(getAvailableProducts(allItems, "Sony")));
+
+//All available items by the author "Adorama Camera"
+console.log(getAvailableProducts(getItemsByAuthor(allItems, "Adorama Camera")));
+
+
+//All items made by Nikon with the author eBay.
+console.log(getItemsByBrand(getItemsByAuthor(allItems, "Nikon"), "eBay"));
 
