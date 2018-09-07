@@ -36,7 +36,7 @@ console.log("Print all items made by Nikon with author eBay");
 
 //Further:
 //Ask the user which one they want to search: Number = number of products item, Country = country of each item, Price = total price of all inventory.
-/*
+
 var searchTerm = prompt("Please insert what you are searching for: (Number, Country, Price) ");
 var searchTerm_lowercase = searchTerm.toLowerCase();
 if (searchTerm_lowercase === "number"){
@@ -51,9 +51,9 @@ else if (searchTerm_lowercase === "price"){
 else {
   console.log("No results found!");
 }
-*/
+
 //Using additional function:
-getLink(getItemsByBrand(short_item, "Sony"));
+//getLink(getItemsByBrand(short_item, "Sony"));
 
 
 
