@@ -104,7 +104,7 @@ function totalInvPrice (items) {
     sum += items[i].product.inventories[0].price;
   }
 
-  return sum;
+  return ("$" + sum.toFixed(2));
 }
 
 // d.Search for one of the things above
