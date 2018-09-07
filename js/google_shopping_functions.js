@@ -92,11 +92,3 @@ var getTotalPrice=function(my_array){
 
   return sum
 }
-
-
-
-
-
-
-
-
