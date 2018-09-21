@@ -1,3 +1,14 @@
+var fs = require('fs')
+var sampleObject = getItems(products)
+
+fs.writeFile("./object.json", JSON.stringify(sampleObject, null, 4), (err) => {
+    if (err) {
+        console.error(err);
+        return;
+    };
+    console.log("File has been created");
+});
+
 // Part 1 Call
 console.log(getItems(products));
 // Part 2 Call
@@ -48,4 +59,4 @@ if (searchTerm.toLowerCase() == "brand") {
 	console.log("Please key in a valid value");
 };
 
-// Further 2 Exercises 
+// Further 2 Exercises

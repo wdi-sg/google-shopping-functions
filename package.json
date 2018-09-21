@@ -1,0 +1,19 @@
+{
+  "name": "google-shopping-functions",
+  "version": "1.0.0",
+  "description": "Using the google shoping data used before (also included in this repository) create some useful functions to answer the following questions.",
+  "main": "products.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mervyns/google-shopping-functions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mervyns/google-shopping-functions/issues"
+  },
+  "homepage": "https://github.com/mervyns/google-shopping-functions#readme"
+}
