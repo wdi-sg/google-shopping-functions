@@ -82,7 +82,7 @@ console.log(nikonEbayItems);
 
 
 
-
+//Furthers
 var whatToDo = prompt("What do you want to do? Input the corresponding numbers. Add as many filters as you need, seperating the numbers with a space. (Eg. 1 2 3)\n1. Search by item name.\n2. Filter by Brand.\n3.Filter by Country.\n4. Filter by Price ")
 var result = [];
 if (whatToDo.includes("1")) {
