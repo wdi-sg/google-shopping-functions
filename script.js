@@ -81,9 +81,8 @@ for (var i in nikonItems) {
 console.log(nikonEbayItems);
 
 
-
 //Furthers
-var whatToDo = prompt("What do you want to do? Input the corresponding numbers. Add as many filters as you need, seperating the numbers with a space. (Eg. 1 2 3)\n1. Search by item name.\n2. Filter by Brand.\n3.Filter by Country.\n4. Filter by Price ")
+var whatToDo = prompt("Search for your items with the filters below.\nAdd as many filters as you need, separating the numbers with a space. (Eg. 1 2 3)\n\n1. Search by item name.\n2. Filter by Brand.\n3.Filter by Country.\n4. Filter by Price.\n5. Filter by Availability ")
 var result = [];
 if (whatToDo.includes("1")) {
     var itemName = prompt("What is the item name?");
@@ -115,8 +114,18 @@ if (whatToDo.includes("3")) {
 if (whatToDo.includes("4")) {
     var minPrice = prompt("What is the minimum price?");
     var maxPrice = prompt("What is the maximum price?");
-    if (products.items[i].product.inventories[0].price >= minPrice && products.items[i].product.inventories[0].price <= maxPrice) {
-        result.push(products.items[i].product.title);
+    for (var i in products.items) {
+        if (products.items[i].product.inventories[0].price >= minPrice && products.items[i].product.inventories[0].price <= maxPrice) {
+            result.push(products.items[i].product.title);
+        }
+    }
+}
+
+if (whatToDo.includes("5")) {
+    for (var i in products.items) {
+            if (products.items[i].product.inventories[0].availability == "inStock") {
+            result.push(products.items[i].product.title);
+        }
     }
 }
 
