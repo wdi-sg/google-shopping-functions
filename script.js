@@ -11,3 +11,13 @@ var getItemsByBrand = function(items, brand) {
     }
     return newItems;
 }
+
+var getItemsByAuthor = function(items, author) {
+    var newItems = [];
+    for (var i in items) {
+        if (items[i].product.author.name.includes(author)) {
+            newItems.push(items[i].product.title);
+        }
+    }
+    return newItems;
+}
