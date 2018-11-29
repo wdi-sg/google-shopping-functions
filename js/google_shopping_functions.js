@@ -148,23 +148,92 @@ console.log(getItemsByBrand(getItems(data), 'Cannon'));
 //var items = getItems();
 
 //Further: Prompt the user for the search term they are looking for.
-
+// var brandChoice = prompt("What brand?");
+// var result2 = getItemsByBrand(result,brandChoice);
+// console.log(result2);
 //Further: If no results were found, let the user know.
 
-/** Further:
-Prompt the user if they want to do or see the following things, then do that thing based on what the user entered:
+// * Further:
+// Prompt the user if they want to do or see the following things, then do that thing based on what the user entered:
 
-The number of product items
+// var userChoice = prompt("What you want? (availability/brand/author)" );
 
-The country of each item
+// if (userChoice === "availability") {
+//     var result4 = getAvailableProducts(result,"instock");
+//     console.log(result4);
+// } else if (userChoice === "brand") {
+//     brandChoice = prompt("What brand?");
+//     var result2 = getItemsByBrand(result,brandChoice);
+//     console.log(result2);
+//     if (result2.length===0) {
+//       alert("Sorry, no results.")
+//   }
+// } else if (userChoice === "author") {
+//     authorChoice = prompt("What author?");
+//     var result3 = getItemsByAuthor(result, authorChoice);
+//     console.log(result3);
+// } else {
+//     alert("Please try again! (availability/brand/author)")
+// }
 
-Total price of all inventory
+// The number of product items
 
-Search for one of the things above
+// The country of each item
 
-**/
+// Total price of all inventory
+
+// Search for one of the things above
+
 
 //Further: Let the user enter in a maximum or minimum price. Only show them items that correspond.
 
+
+
+var getMinPrice = function(result,price) {
+  var itemPrice = [];
+    for (var i= 0; i < result.length; i++) {
+    if (result[i].product.inventories[0].price>=price) {
+    itemPrice.push(result[i].product.description);
+    itemPrice.push(result[i].product.inventories[0].price);
+    }
+  }
+  return itemPrice;
+}
+
+var getMaxPrice = function(result,price) {
+  var itemPrice2 = [];
+    for (var i= 0; i < result.length; i++) {
+    if (result[i].product.inventories[0].price<=price) {
+    itemPrice2.push(result[i].product.description);
+    itemPrice2.push(result[i].product.inventories[0].price);
+    }
+  }
+  return itemPrice2;
+}
+
+// var priceChoice = prompt("Do you have a price floor or ceiling? (max/min)");
+
+// if (priceChoice==="min") {
+//     var price = prompt("What is your minimum price?");
+//     var resultMin = getMinPrice(result,price);
+//     console.log(resultMin);
+// } else if (priceChoice==="max") {
+//     var price = prompt("What is your maximum price?");
+//     var resultMax = getMaxPrice(result,price);
+//     console.log(resultMax);
+// } else {
+//     alert("Please try again! (min/max)");
+// }
+
 //Further: Let the user enter in a maximum and minimum price. Only show them items that correspond.
+
+
+var maximum = prompt("What is your maximum price?");
+var minimum = prompt("What is your minimum price?");
+
+// console.log(getItemsByBrand((getItemsByAuthor(result,"ebay")), "Nikon"));
+
+console.log(getMinPrice(result,minimum));
+console.log(getMaxPrice(result,maximum));
+console.log(getMaxPrice((getMinPrice(result,minimum)),maximum));
 
