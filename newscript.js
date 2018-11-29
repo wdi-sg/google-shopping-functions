@@ -395,4 +395,26 @@ else{
 }
 
 
+//##Further Part 4 Incomplete
 
+// Let the user enter in a maximum or minimum price. Only show them items that correspond.
+
+var getItems = function(){
+  return products.items;
+}
+
+var getPriceRange = function(items, minPrice, maxPrice) {
+  var priceRange =[];
+    for(var i = 0; i < products.items.length; i++){
+        var numItems = products.items[i];
+        var numPrice = numItems.product.inventories[0].price;
+        var priceTitle = numItems.product.title;
+            if (minPrice < numPrice && numPrice < maxPrice > 0 ) {
+        }
+        else {
+          console.log("No items in price range");
+        }
+      }
+    }
+
+// getPriceRange(getItems(), 900, 1500);
