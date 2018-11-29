@@ -10,6 +10,32 @@
 </head>
 
 <body>
+  <h1>Welcome to Product Search Page</h1>
+  <div>
+    <div>
+      <label for="searchData">Please enter your search string: </label>
+      <input type="text" id="searchData" name="searchData">
+    </div>
+
+    <div>
+      <h3>Search Term :</h3>
+      <input type="radio" name="searchTerm" value="byBrand" checked>Search By Brand<br>
+      <input type="radio" name="searchTerm" value="byAuthor">Search By Author<br>
+
+    </div>
+    <!-- <h3>Product Availability:</h3>
+    <label for="inStock">In Stock</label>
+    <input type="radio" name="inStock" id="inStock" value="inStock" checked> -->
+    <div>
+      <button id="searchBtn" type="button">
+        Search
+      </button>
+    </div>
+  </div>
+  <h2>Search Results: </h2>
+  <div id="search-result">
+
+  </div>
 
   <script src='products.js'></script>
   <script src='js/google_shopping_functions.js'></script>

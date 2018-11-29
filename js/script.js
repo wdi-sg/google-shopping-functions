@@ -18,4 +18,53 @@ var adoramaProducts = getItemsByAuthor(items, "Adorama Camera")
 var nikonItems = getItemsByBrand(items, 'Nikon');
 var nikonOnEbay = getItemsByAuthor(nikonItems, "eBay");
 
+function getSearchTerm() {
+    var radioButton = document.getElementsByName("searchTerm");
+    var selectedValue;
 
+    if (radioButton[0].checked === true) {
+      selectedValue = radioButton[0].value;
+    } else {
+
+      selectedValue = radioButton[1].value;
+    }
+
+    return selectedValue;
+}
+
+function displayResult(resultList) {
+
+  var outputDisplay = document.getElementById("search-result");
+
+  // outputDisplay.insertAdjacentHTML('beforeend',  '<table style="width:100%"></table>');
+  for (i=0; i < resultList.length; i++) {
+    displayItem = '<p>'+(i+1)+". "+ resultList[i].product.title+' - $'+ resultList[i].product.inventories[0].price+'</p>'
+    outputDisplay.insertAdjacentHTML('beforeend', displayItem);
+  }
+
+//   outputDisplay.insertAdjacentHTML('beforeend',  '<tr><td>Jill</td><td>Smith</td><td>50</td></tr>)');
+//   outputDisplay.insertAdjacentHTML('beforeend',  '</table>');
+}
+
+function searchInfo() {
+    var schTerm = getSearchTerm();
+    var schData = document.getElementById("searchData").value;
+    var searchResult=[];
+
+    if (schData.length <= 0) {
+      alert("Must enter a value in search string")
+    } else {
+      if (schTerm === "byBrand") {
+          searchResult = getItemsByBrand(items, schData);
+      } else {
+          searchResult = getItemsByAuthor(items, schData);
+
+      }
+    }
+
+    displayResult(searchResult);
+}
+
+var searchBtn = document.getElementById("searchBtn");
+
+searchBtn.addEventListener("click", searchInfo);

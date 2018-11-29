@@ -1,10 +1,14 @@
-.searchBtn {
+#searchBtn {
   /* padding: 10px; */
-  font: 20px;
-  background-color: rgb(238, 238, 241);
-
+  font: 30px;
+  font-weight: 800;
+  background-color: rgb(42, 42, 165);
+  color: white;
+  border-radius: 25%;
+  margin: 3px;
+  padding: 8px;
 }
 
-.searchBtn:hover {
+#searchBtn:hover {
   background-color: red;
 }
