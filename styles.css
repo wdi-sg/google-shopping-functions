@@ -1,0 +1,10 @@
+.searchBtn {
+  /* padding: 10px; */
+  font: 20px;
+  background-color: rgb(238, 238, 241);
+
+}
+
+.searchBtn:hover {
+  background-color: red;
+}
