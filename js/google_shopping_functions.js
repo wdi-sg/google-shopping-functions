@@ -71,4 +71,18 @@ var getAvailableProducts = function(items){
 }
 
 
+//-------------------------------------------------------------------------------------
 
+var toCheckIfTrue = function(conditions, criterion){
+    var truthyFalse;
+    for (var d=0; d<conditions.length; d++){
+        if (criterion === conditions[d]) {
+            truthyFalse = true;
+            // console.log("ITS TRUUUU");
+            return truthyFalse;
+        }
+    }
+    truthyFalse = false;
+    // console.log("ITS FALSEEE");
+    return truthyFalse;
+}
