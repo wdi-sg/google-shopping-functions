@@ -1,6 +1,6 @@
 //Part 1:
 
-var result = getItems();
+//var result = getItems();
 
 //part 2:
 
