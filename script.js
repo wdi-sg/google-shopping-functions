@@ -21,3 +21,15 @@ var getItemsByAuthor = function(items, author) {
     }
     return newItems;
 }
+
+var getAvailableProducts = function(items) {
+    var newItems = [];
+    for (var i in items) {
+        for (var j in items[i].product.inventories) {
+          if (items[i].product.inventories[j].availability == "inStock") {
+            newItems.push(items[i].product.title);
+          }
+        }
+    }
+    return newItems;
+}
