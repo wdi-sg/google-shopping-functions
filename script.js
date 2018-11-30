@@ -1,7 +1,8 @@
-let itemsALL = [];
+let allItems = [];
 let totalBrands = [];
+const resultContainer = document.getElementById("result-container");
 
-let userQuery = {
+const userQuery = {
   brand: [], //string-array
   price: {
     minPrice: null, //num
@@ -11,32 +12,27 @@ let userQuery = {
 };
 let userQueriedProducts = [];
 
+// value =elem  index= elem's index self=filter's array
+const onlyUnique = (unfilteredBrandX, unfilteredBrandXIndex, totalBrands) => { // obtained from internet, remember to revirew
+  return totalBrands.indexOf(unfilteredBrandX) === unfilteredBrandXIndex;
+}; // indexOf only return index of FIRST match, rest matches ignored
 
-
-const getItems = () => {
+const getItemsAndBrands = () => {
   for (let i = 0; i < products.items.length; i++) {
-    itemsALL.push(products.items[i].product);
-  };
-};
-
-const getItemsByBrand = (selectedItems, brand) => {
-  for (let i = 0; i < selectedItems.length; i++) {
-    if (brand === selectedItems[i].brand) {
-      userQueriedProducts.push(selectedItems[i]);
-    }
-  };
-};
-
-const onlyUnique = (value, index, self) => { // obtained from internet, remember to revirew
-  return self.indexOf(value) === index;
-};
-
-const getBrands = () => {
-  for (let i = 0; i < products.items.length; i++) {
+    allItems.push(products.items[i].product);
     totalBrands.push(products.items[i].product.brand);
-
   };
   totalBrands = totalBrands.filter(onlyUnique);
+};
+
+const filterItemsByBrands = (items, brands) => {
+  for (let item of items) {
+    for (let brand of brands) {
+      if (brand === item.brand) {
+        userQueriedProducts.push(item)
+      }
+    }
+  }
 };
 
 const getUserQuery = () => {
@@ -52,22 +48,16 @@ const getUserQuery = () => {
   }
   userQuery.price.minPrice = document.getElementById("minPrice").value;
   userQuery.price.maxPrice = document.getElementById("maxPrice").value;
-
 };
 
 const queryAction = () => {
-  for (let j = 0; j < userQuery.brand.length; j++) {
-    getItemsByBrand(itemsALL, userQuery.brand[j]);
-
-  }
+  filterItemsByBrands(allItems, userQuery.brand);
 }
 
 const resetQuery = () => {
   userQuery.brand = [];
-  itemsALL = [];
+  allItems = [];
   userQueriedProducts = [];
-
-  let resultContainer = document.getElementById("result-container");
   while (resultContainer.hasChildNodes()) {
     resultContainer.removeChild(resultContainer.lastChild);
   }
@@ -79,18 +69,15 @@ const showQueryResult = () => {
     queryResult.className = "result";
     let queryResultNode = document.createTextNode(`${userQueriedProducts[i].title} `);
     queryResult.appendChild(queryResultNode);
-    let resultContainer = document.getElementById("result-container");
     resultContainer.appendChild(queryResult);
   }
 }
 
 const runQuery = () => {
   resetQuery();
-  getItems();
-  getBrands();
+  getItemsAndBrands();
   getUserQuery();
   queryAction();
   showQueryResult();
   console.log(userQueriedProducts);
-
 }
