@@ -52,6 +52,12 @@ const getUserQuery = () => {
 
 const queryAction = () => {
   filterItemsByBrands(allItems, userQuery.brand);
+  for (let i = 0; i<userQueriedProducts.length; i++){
+    if  (userQueriedProducts[i].inventories[0].price >= userQuery.price.minPrice &&
+      userQueriedProducts[i].inventories[0].price <= userQuery.price.maxPrice){
+        console.log ("price filtered")
+      } else { console.log("price unfiltered")}
+  }
 }
 
 const resetQuery = () => {
