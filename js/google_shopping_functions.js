@@ -46,7 +46,6 @@ function getItemsByAuthor(items, author, productStatus) {
 
   var itemList = [];
 
-
   for (var i = 0; i < items.length; i++) {
     if (items[i].product.author.name.toLowerCase().includes(author.toLowerCase())) {
       if (productStatus === "All") {
@@ -67,14 +66,39 @@ function getItemsByAuthor(items, author, productStatus) {
 
 }
 
-function getAvailableProducts(items) {
+function getAvailableProducts(items, schData, schTerm, productStatus) {
 
   var itemList = [];
 
   for (var i = 0; i < items.length; i++) {
-    if (items[i].product.inventories[0].availability == 'inStock') {
-      itemList.push(items[i]);
+    var item = [];
+    if (schTerm = "allProducts") {
+       item = items[i];
+
+    } else if (schTerm = "byBrand") {
+       if (items[i].product.brand.toLowerCase().includes(brand.toLowerCase())) {
+         item = items[i];
+       }
+    } else {
+      if (items[i].product.author.name.toLowerCase().includes(schData.toLowerCase())) {
+        item = items[i];
+      }
     }
+
+    // if (item.length > 0) {
+      if (productStatus === "All") {
+        itemList.push(item)
+      } else if (productStatus === "inStock") {
+        if (item.product.inventories[0].availability === "inStock") {
+          itemList.push(item)
+        }
+      } else {
+        if (item.product.inventories[0].availability === "backorder") {
+          itemList.push(item)
+        }
+      }
+    // }
+
   };
 
   return itemList;

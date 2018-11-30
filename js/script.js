@@ -24,9 +24,10 @@ function getSearchTerm() {
 
   if (radioButton[0].checked === true) {
     selectedValue = radioButton[0].value;
-  } else {
-
+  } else if (radioButton[1].checked === true){
     selectedValue = radioButton[1].value;
+  } else {
+    selectedValue = radioButton[2].value;
   }
 
   return selectedValue;
@@ -40,7 +41,7 @@ function displayResult(resultList) {
 
   // outputDisplay.insertAdjacentHTML('beforeend',  '<table style="width:100%"></table>');
   for (i = 0; i < resultList.length; i++) {
-    displayItem = '<p>' + (i + 1) + ". " + resultList[i].product.title + ' - $' + resultList[i].product.inventories[0].price + '</p>'
+    displayItem = '<p>' + (i + 1) + ". " + resultList[i].product.brand + " : " + resultList[i].product.title + ' - $' + resultList[i].product.inventories[0].price + '</p>'
     outputDisplay.insertAdjacentHTML('beforeend', displayItem);
   }
 
@@ -72,10 +73,12 @@ function searchInfo() {
   // } else {
   if (schTerm === "byBrand") {
     searchResult = getItemsByBrand(items, schData, productStatus);
-  } else {
+  } else if (schTerm === "byAuthor") {
     searchResult = getItemsByAuthor(items, schData, productStatus);
-
+  } else {
+    searchResult = getAvailableProducts(items, schData, schTerm, productStatus);
   }
+
   // }
 
   // if (searchResult.length < 1) {
