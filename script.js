@@ -21,13 +21,19 @@ console.log(getItemsByAuthor(getItemsByBrand(completeProductArray, "Nikon"), "eB
 
 console.log('---')
 
-// --------------------------------------FURTHER BELOW ------------------------------------------
+// -------------------------------------- FURTHER BELOW ------------------------------------------
+
+//Initiate the prompts to decide what the user wants to do
+var initialCriterion = initiatePrompts();
 
 //Asks for search criterion from user and also stores it for use later
 var searchCriterion = getSearchCriterion();
 
 //Asks for search keyword from user and also stores it for use later
 var keyword = getKeyword();
+
+//Asks for whether user wants to search for products based on other criteria
+var extraCriterion = getExtraCriterion();
 
 //Get the search result in array form
 var resultArray = getResultArray(searchCriterion, keyword, completeProductArray)
@@ -40,13 +46,25 @@ alert(resultString)
 //Prompt the user for his/her search criterion
 function getSearchCriterion(){
   while(true){
-      var searchCriterion = prompt("Hi! Please enter a number representing your search criterion: \n1 - By item name or type\n2 - By brand name\n3 - By seller name")
-      searchCriterion = parseInt(searchCriterion)
-      if (searchCriterion === 1 || searchCriterion === 2 || searchCriterion === 3){
-        return searchCriterion
-      } else {
-        alert("Invalid search criterion! Please try again.")
-      }
+    var searchCriterion = prompt("How would you like to search for the product(s)?\n1 - By item name or type\n2 - By brand name\n3 - By seller name")
+    searchCriterion = parseInt(searchCriterion)
+    if (searchCriterion === 1 || searchCriterion === 2 || searchCriterion === 3){
+      return searchCriterion
+    } else {
+      alert("Invalid search criterion! Please try again.")
+    }
+  }
+}
+
+function initiatePrompts(){
+  while (true){
+    var extraCriterion = prompt("Hi! Please select what you would like to do:\n1 - Search for a product\n2 - Display the total number of products\n3 - Display the products by country\n4 - Display the total price of all inventory")
+    extraCriterion = parseInt(extraCriterion)
+    if (extraCriterion === 1 || extraCriterion === 2 || extraCriterion === 3 || extraCriterion === 4){
+      return extraCriterion
+    } else {
+      alert("Invalid choice! Please try again.")
+    }
   }
 }
 
