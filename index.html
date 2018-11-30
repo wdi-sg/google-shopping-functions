@@ -12,20 +12,26 @@
 <body>
   <h1>Welcome to Product Search Page</h1>
   <div>
+
     <div>
       <label for="searchData">Please enter your search string: </label>
       <input type="text" id="searchData" name="searchData">
     </div>
-
-    <div>
-      <h3>Search Term :</h3>
+    <h3>Search Term :</h3>
+    <div id='searchTermValue'>
       <input type="radio" name="searchTerm" value="byBrand" checked>Search By Brand<br>
       <input type="radio" name="searchTerm" value="byAuthor">Search By Author<br>
 
     </div>
-    <!-- <h3>Product Availability:</h3>
-    <label for="inStock">In Stock</label>
-    <input type="radio" name="inStock" id="inStock" value="inStock" checked> -->
+    <h3>Product Availability:</h3>
+    <div>
+      <label for="inStock">In Stock </label>
+      <input type="checkbox" name="inStock" id="inStock" value="inStock" checked>
+    </div>
+    <div>
+      <label for="backorder">Back Order</label>
+      <input type="checkbox" name="backorder" id="backorder" value="backorder">
+    </div>
     <div>
       <button id="searchBtn" type="button">
         Search

@@ -52,24 +52,37 @@ function searchInfo() {
   var schTerm = getSearchTerm();
   var schData = document.getElementById("searchData").value;
   var searchResult = [];
+  var inStock = document.getElementById('inStock').checked;
+  var backorder = document.getElementById('backorder').checked;
+  var productStatus = "";
 
-
-  if (schData.length <= 0) {
-    alert("Must enter a value in search string")
-  } else {
-    if (schTerm === "byBrand") {
-      searchResult = getItemsByBrand(items, schData);
-    } else {
-      searchResult = getItemsByAuthor(items, schData);
-
-    }
+  if (inStock && backorder) {
+    productStatus = "All";
+  }  else if (inStock) {
+    productStatus = "inStock"
+  } else if (backorder) {
+    productStatus = 'backorder';
+  }
+  else {
+    productStatus = 'All';
   }
 
-  if (searchResult.length < 1) {
-    alert("No result found")
+  // if (schData.length <= 0) {
+  //   alert("Must enter a value in search string")
+  // } else {
+  if (schTerm === "byBrand") {
+    searchResult = getItemsByBrand(items, schData, productStatus);
   } else {
-    displayResult(searchResult);
+    searchResult = getItemsByAuthor(items, schData, productStatus);
+
   }
+  // }
+
+  // if (searchResult.length < 1) {
+  //   alert("No result found")
+  // } else {
+  displayResult(searchResult);
+  // }
 
 }
 
