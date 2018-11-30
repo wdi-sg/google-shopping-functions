@@ -24,21 +24,22 @@ function getItemByBrand(items, Brand){
     if (items[i].product.brand.toLowerCase() === Brand.toLowerCase()){
       happydays.push(getItems()[i])
     }
-    // else if(Brand == "all") {
-    //   happydays.push(getItems()[i])
-    // }
+    else if(Brand == "all") {
+      happydays.push(getItems()[i])
+    }
   }
   return happydays
 }
-// var selectBrand = prompt("Please select brands you want to filter ").toLowerCase();
-// if (selectBrand === "q" || selectBrand === "quit"){
-//   Console.log("Goodbye!");
-// }
-// else if (selectBrand === " "){
-//   selectBrand = "all"
-//   getItemByBrand(getItems(),selectBrand);
-// }
-// else{getItemByBrand(getItems(),selectBrand);}
+//start of information collection
+var selectBrand = prompt("Please select brands you want to filter ").toLowerCase();
+if (selectBrand === "q" || selectBrand === "quit"){
+  Console.log("Goodbye!");
+}
+else if (selectBrand === " "){
+  selectBrand = "all"
+  getItemByBrand(getItems(),selectBrand);
+}
+else{getItemByBrand(getItems(),selectBrand);}
 
 // 3.) getItemsByAuthor(items, author)
 // input: an array of items, a string of an author to filter with
@@ -58,17 +59,18 @@ function getItemByAuthor(items, Author){
   }
   return (happydays)
 }
-// var selectAuthor = prompt("Please select author (Target, CDW, EBAY)").toLowerCase();
-// if (selectAuthor === "q" || selectAuthor === "quit"){
-//   Console.log("Goodbye!");
-// }
-// else if (selectAuthor === " "){
-//   selectAuthor = "all"
-//   getItemByAuthor(getItems(),selectAuthor);
-// }
-// else{
-//   getItemByAuthor(getItems(),selectAuthor);
-// }
+// start of information collection
+var selectAuthor = prompt("Please select author (Target, CDW, EBAY)").toLowerCase();
+if (selectAuthor === "q" || selectAuthor === "quit"){
+  Console.log("Goodbye!");
+}
+else if (selectAuthor === " "){
+  selectAuthor = "all"
+  getItemByAuthor(getItems(),selectAuthor);
+}
+else{
+  getItemByAuthor(getItems(),selectAuthor);
+}
 
 // 4.) getAvailableProducts(items)
 // input: an array of items
@@ -85,11 +87,11 @@ function getAvailableProducts(){
   // console.log(itemAvail);
   return (itemAvail)
 }
-// getAvailableProducts()
-// console.log(getItemByBrand(getItems(), "Sony"))
-// console.log(getItemByBrand(getAvailableProducts(),"canon"))
-// console.log(getItemByAuthor(getAvailableProducts(),"Adorama"))
-// console.log(getItemByAuthor(getItemByBrand(getItems(),"nikon"),"ebay"))
+getAvailableProducts()
+console.log(getItemByBrand(getItems(), "Sony"))
+console.log(getItemByBrand(getAvailableProducts(),"canon"))
+console.log(getItemByAuthor(getAvailableProducts(),"Adorama"))
+console.log(getItemByAuthor(getItemByBrand(getItems(),"nikon"),"ebay"))
 
 console.log(getItemByBrand(getItemByAuthor(getAvailableProducts(),"ebay"),"nikon"))
 
