@@ -36,6 +36,8 @@ function displayResult(resultList) {
 
   var outputDisplay = document.getElementById("search-result");
 
+  outputDisplay.innerHTML = "";
+
   // outputDisplay.insertAdjacentHTML('beforeend',  '<table style="width:100%"></table>');
   for (i = 0; i < resultList.length; i++) {
     displayItem = '<p>' + (i + 1) + ". " + resultList[i].product.title + ' - $' + resultList[i].product.inventories[0].price + '</p>'
@@ -50,9 +52,7 @@ function searchInfo() {
   var schTerm = getSearchTerm();
   var schData = document.getElementById("searchData").value;
   var searchResult = [];
-  var outputDisplay = document.getElementById("search-result");
 
-  outputDisplay.innerHTML = "";
 
   if (schData.length <= 0) {
     alert("Must enter a value in search string")
