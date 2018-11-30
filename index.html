@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+</head>
+
+<body>
+  <div class="query-box">
+    Nikon: <input type="checkbox" id="checkNikon">
+    Pentax: <input type="checkbox" id="checkPentax">
+    Fuji: <input type="checkbox" id="checkFuji"><br>
+    Sony: <input type="checkbox" id="checkSony">
+    Canon: <input type="checkbox" id="checkCanon">
+    Lytro: <input type="checkbox" id="checkLytro"><br>
+    Panasonic: <input type="checkbox" id="checkPanasonic">
+    Samsung: <input type="checkbox" id="checkSamsung">
+    Olympus: <input type="checkbox" id="checkOlympus"><br>
+    Minimum Price: <input type="text" id="minPrice"><br>
+    Maximum Price: <input type="text" id="maxPrice"><br>
+    Only available items?: <input type="checkbox" id="checkAvailable"><br>
+
+    <input type="submit" value="Submit" id="submitQuery" onclick="runQuery();">
+
+
+  </div>
+
+  <div id="result-container">
+
+  </div>
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+  <script id="__bs_script__">
+    //<![CDATA[
+    document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.26.3'><\/script>".replace(
+      "HOST", location.hostname));
+    //]]>
+
+  </script>
+
+</body>
+
+</html>
