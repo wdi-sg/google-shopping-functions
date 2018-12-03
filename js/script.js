@@ -36,7 +36,7 @@ function getSearchTerm() {
 function displayResult(resultList) {
 
   var outputDisplay = document.getElementById("search-result");
-
+  var outputDisplay = document.getElementById("search-result");
   outputDisplay.innerHTML = "";
 
   // outputDisplay.insertAdjacentHTML('beforeend',  '<table style="width:100%"></table>');
