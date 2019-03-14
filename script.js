@@ -72,8 +72,27 @@ var getAvailableProducts = function(items) {
 console.log(getAvailableProducts(items));
 
 
+//Question 5
+console.log("Question 5");
 
+console.log(items);
+console.log(getItemsByBrand(items,"Sony"));
+console.log(getAvailableProducts(getItemsByBrand(items, "Sony")));
+console.log(getItemsByAuthor(items, "Adorama Camera"))
+console.log(getItemsByBrand(getItemsByAuthor(items, "ebay"),"Nikkon"));
+
+
+//Question 6
 
 // var userInput = prompt("What brand are you searching for?");
    // console.log(userInput);
+// var userInput = prompt("Search by 'Brand' or by 'Condition'?");
+// var userInput = userInput.toLowerCase();
 
+// if (userInput === "brand") {
+// var userInput1 = prompt("What brand are you searching for?");
+// }  else if (userInput = "condition") {
+//     var userInput1 = prompt("Would you prefer a New or Old item?");
+// }
+
+//    console.log("List of all items available based on search criteria :" + userInput1.toUpperCase());
