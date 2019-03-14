@@ -1,6 +1,6 @@
 var getItems = function(objectData) {
-    return objectData.items;
-    //items is an array of item Objects
+  return objectData.items;
+  //items is an array of item Objects
 };
 items = getItems(products);
 
@@ -27,4 +27,16 @@ function getItemsByAuthor(items, authorName) {
     }
   }
   return authorArray;
+}
+
+function getAvailableProducts(items) {
+  var availableArray = [];
+  for (let i = 0; i < items.length; i++) {
+    //author reseult found in lowercase
+    var availableResult = items[i].product.inventories[0].availability.toLowerCase();
+    if (availableResult.includes("instock")) {
+      availableArray.push(items[i]);
+    }
+  }
+  return availableArray;
 }
