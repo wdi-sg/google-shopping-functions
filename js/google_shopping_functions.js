@@ -40,8 +40,25 @@ function getItemsByBrand(items,itemBrand) {
     }
   }
 
-getItemsByBrand(productsArray,"Canon");
+getItemsByBrand(productsArray,"Sony");
 
+// 3.) getItemsByAuthor(items, author)
+// input: an array of items, a string of an author to filter with
+// returns: an array of items (of a specific author)
+
+function getItemsByAuthor(items, vendor) {
+  for (i = 0; i < items.length; i++) {
+    if ((items[i].product.author.name) === vendor) {
+      console.log(items[i].product.title);
+    }
+  }
+} //GET BACK TO THIS LATER
+
+getItemsByAuthor(productsArray,"eBay");
+
+if (products.items[0].product.author.name === "pictureline.com") {
+console.log(products.items[0].product.author.name);
+}
 
 
 
