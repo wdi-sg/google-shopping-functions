@@ -16,4 +16,12 @@
 // console.log('Item Count: ' + getItemsCount(data));
 
 console.log("HERROOOOOO");
-console.log(products.items);
+console.log(products);
+
+//  1.) getItems(objectData)
+
+function getItems(objectData) {
+  return objectData.items;
+}
+
+console.log(getItems(products));
