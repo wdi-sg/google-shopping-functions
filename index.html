@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript" src="products.js"></script>
+<script type="text/javascript" src="js/google_shopping_functions.js"></script>
+<script type="text/javascript" src="script.js"></script>
+
+<p>
+  ## 1.) getItems(objectData)
+
+* **input:** json object
+* **returns:** an array of items
+
+Create a function called `getItems` that simply returns the items array from the google product object.
+
+**Note** all other functions (below) use the return of this function as their input.
+</p>
+<p>
+## 2.) getItemsByBrand(items, brand)
+
+* **input:** an array of items, a string of a brand to filter with
+* **returns:** an array of items (of a specific brand)
+
+Create a function called `getItemsByBrand` that takes an item array returns a new array of all items of a specified brand.
+
+Test this function by searching for Sony, Canon, Nikon and Panasonic.
+
+</p>
+<p>
+## 3.) getItemsByAuthor(items, author)
+
+* **input:** an array of items, a string of an author to filter with
+* **returns:** an array of items (of a specific author)
+
+Create a function called `getItemsByAuthor` that takes an item array and returns a new array of all items by a specified author.
+
+Test this function by searching for Target, CDW, eBay
+</p>
+<p>
+## 4.) getAvailableProducts(items)
+
+* **input:** an array of items
+* **returns:** an array of items (that are available)
+
+Create function called `getAvailableProducts` that takes an item array and returns an array containing all of the available products (an available product is one with at least one availability of "inStock" in the inventories array)
+
+</p>
+<p>
+## 5.) Use your functions
+
+Use the functions you created in 1 - 4 to ouput (console.log) the following lists of items.
+
+* All items made by Sony.
+* All items made by Sony that are available.
+* All available items by the author "Adorama Camera"
+* All items made by Nikon with the author eBay.
+
+* remember that you must create a script tag for each file you create, and that they must be in the correct order for your code to run.
+
+
+</p>
+</body>
+</html>
