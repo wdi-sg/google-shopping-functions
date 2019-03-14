@@ -1,18 +1,8 @@
-console.log(products.items.length);
-
-// var prodItem = products.items;
-// var brand = prodItem[i].product.brand;
-// var title = products.items[i].product.title;
-// var author = prodItem[i].product.author.name;
-// var hasName = author.search("eBay");
-// var imgLink = prodItem[i].product.images[0].link;
-// var condition = prodItem[i].product.condition;
-
-
+//##1.
 /************************************/
 var counter =1;
 var userInputBrand = "sony".toLowerCase();
-var userInputAuthor ="ebay".toLowerCase();
+var userInputAuthor ="adorama".toLowerCase();
 
 console.log(userInputBrand);
 console.log(userInputAuthor);
@@ -92,7 +82,8 @@ console.log(getItemsByBrand(getItems(products), "sony"));
 console.log(getItemsByBrand(getAvailableProducts(getItems(products)), "sony"));
 
 // 5.3) available, author "adorama"
-console.log(getAvailableProducts(getItemsByAuthor(getItems(products),"adorama")));
+console.log(getItemsByAuthor(getItems(products),"adorama"));
+// console.log(getAvailableProducts(getItemsByAuthor(getItems(products),"adorama")));
 
 //5.4) nikon all and author ebay
 console.log(getItemsByBrand(getItemsByAuthor(getItems(products),"ebay"), "nikon"));
@@ -105,3 +96,15 @@ console.log(getItemsByBrand(getItemsByAuthor(getItems(products),"ebay"), "nikon"
 * All available items by the author "Adorama Camera"
 * All items made by Nikon with the author eBay.
 */
+
+// console.log(products.items.length);
+
+// var prodItem = products.items;
+// var brand = prodItem[i].product.brand;
+// var title = products.items[i].product.title;
+// var author = prodItem[i].product.author.name;
+// var hasName = author.search("eBay");
+// var imgLink = prodItem[i].product.images[0].link;
+// var condition = prodItem[i].product.condition;
+
+
