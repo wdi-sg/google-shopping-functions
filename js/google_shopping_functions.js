@@ -101,4 +101,116 @@ console.log(getItemsByBrand(eBay, "Nikon"));
 // eBay is the array of ebay vendors, therefore getItemsByBrand looks for Nikon brands within the ebay array.
 
 
+// Further
+// Prompt the user for the search term they are looking for.
+// Further
+// If no results were found, let the user know.
 
+var userInput = prompt('What item are you looking for?');
+var userItem = userInput.toLowerCase()
+
+function userSearch(items, search) {
+  var searchCount = 0; //for error prompt
+  for (i = 0; i < items.length; i++) {
+    var brand = (items[i].product.brand).toLowerCase();
+    var product = (items[i].product.title.toLowerCase());
+       if (brand.includes(search)  || product.includes(search) ) {
+        console.log(items[i].product.title);
+        searchCount ++;
+     }
+   }
+// if a product is found, searchCount goes up, so when there are no results found searchCount === 0
+  if (searchCount === 0) {
+    console.log("Item not found!");
+  }
+}
+
+userSearch(productsArray, userItem);
+
+
+// Further
+// Prompt the user if they want to do or see the following things, then do that thing based on what the user entered:
+// The number of product items
+// The country of each item
+// Total price of all inventory
+// Search for one of the things above
+
+var userInputChoice = prompt(" What do you want to search? \n 1. The number of product items \n 2. The country of each item \n 3. Total price of all inventory \n type the corresponding number")
+
+function itemCountries(items) {
+  for (i = 0; i < items.length; i++) {
+    console.log(items[i].product.country);
+  }
+}
+
+function totalPrice(items) {
+  var totalPrice = 0;
+  for (i = 0; i < items.length; i++) {
+    totalPrice = totalPrice + items[i].product.inventories[0].price;
+  }
+  return totalPrice.toFixed(2); //returns 2 decimal places
+}
+
+
+if (userInputChoice === "1" ) {
+  console.log(getItemsCount(products));
+} else if (userInputChoice === "2") {
+  itemCountries(productsArray);
+} else if (userInputChoice === "3") {
+  console.log(totalPrice(productsArray));
+}
+
+
+// Further
+// Let the user enter in a maximum or minimum price. Only show them items that correspond.
+
+function maxPrice(items) {
+  var userInput = prompt("What's your maximum budget?")
+  var userPrice = parseInt(userInput); //changes string to integer
+
+  for (i = 0; i < items.length; i++) {
+    if (items[i].product.inventories[0].price <= userPrice) {
+      console.log(`${items[i].product.title} : $${items[i].product.inventories[0].price} `);
+    }
+  }
+}
+
+
+function minPrice(items) {
+  var userInput = prompt("What's your minimum budget?")
+  var userPrice = parseInt(userInput);
+
+  for (i = 0; i < items.length; i++) {
+    if (items[i].product.inventories[0].price >= userPrice) {
+      console.log(`${items[i].product.title} : $${items[i].product.inventories[0].price} `);
+    }
+  }
+}
+
+var userPriceCheck = prompt('Do you have a max or min budget? \n  1. max budget \n  2. min budget \n    Choose the number')
+
+if (userPriceCheck === "1") {
+  maxPrice(productsArray);
+} else if (userPriceCheck === "2") {
+  minPrice(productsArray);
+}
+
+// Further
+// Let the user enter in a maximum and minimum price. Only show them items that correspond.
+
+function budget(items) {
+  var userMaxBudget = prompt("whats your max budget?");
+  var maxBudget = parseInt(userMaxBudget);
+
+  var userMinBudget = prompt("Whats your min budget?")
+  var minBudget = parseInt(userMinBudget);
+
+  for (i = 0; i < items.length; i++) {
+    var price = items[i].product.inventories[0].price;
+    if ( price >= minBudget && price <= maxBudget) {
+      console.log(`${items[i].product.title} : $${price} `);
+    }
+  }
+}
+
+budget(productsArray);
