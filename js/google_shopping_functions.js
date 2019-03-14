@@ -14,4 +14,3 @@ function getItemsCount(itemData) {
 
 // output item count using the getItemsCount function
 console.log('Item Count: ' + getItemsCount(data));
-
