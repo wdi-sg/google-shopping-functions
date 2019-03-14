@@ -8,14 +8,15 @@ console.log("Part 1: Get Items is done");
 console.log("Executing Get Items by brands from the script page");
 getItemsByBrand(getItems(),"Sony");
 getItemsByBrand(getItems(),"Canon");
-
+getItemsByBrand(getItems(),"Nikon");
+getItemsByBrand(getItems(),"Panasonic");
 console.log("End executing get items by brands from the script page");
 
-//Canon, Nikon and Panasonic.
 
-
-//Part 3:
-
+//Part 3: Printing out an array of items that include these words in the author name: Target, CDW, eBay;
+getItemsByAuthor(getItems(),"Target");
+getItemsByAuthor(getItems(),"CDW");
+getItemsByAuthor(getItems(),"eBay");
 
 
 console.log('end');
