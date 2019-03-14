@@ -37,7 +37,6 @@ var getItemsByBrand = function(array,brandName){
 }
 
 //Part 3:
-
 var getItemsByAuthor = function(array, authorName){
   var authorArr = [];
   for (i = 0; i < array.length; i++){
@@ -51,7 +50,21 @@ var getItemsByAuthor = function(array, authorName){
   console.log(authorArr);
 }
 
+//Part 4:
+var getAvailableProducts = function(array){
+  var inStockArr = [];
+  for (i = 0; i< array.length; i++){
+    if((array[i].product.inventories[0].availability) === "inStock"){
+      inStockArr.push(array[i].product.title);
+    }else{
+      //do nothing;
+    }
+  }
+  console.log("prints out array of items that are in stock");
+  console.log(inStockArr);
+}
 
+//Part 5:
 
 
 

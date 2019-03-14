@@ -18,5 +18,10 @@ getItemsByAuthor(getItems(),"Target");
 getItemsByAuthor(getItems(),"CDW");
 getItemsByAuthor(getItems(),"eBay");
 
+//Part 4: Printing out an array of items that are in stock
+getAvailableProducts(getItems());
+
+//Part 5: 
+
 
 console.log('end');
