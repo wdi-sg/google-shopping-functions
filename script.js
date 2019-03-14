@@ -38,4 +38,4 @@ Use the functions you created in 1 - 4 to ouput (console.log) the following list
 console.log(getItemsByBrand(products.items, "Sony"));
 console.log(getAvailableSonyProducts(products.items));
 console.log(getItemsByAuthor(products.items, "Adorama Camera"));
-console.log(getItemsByBrand(getItemsByAuthor(products.items, "eBay"), "Nikon"));
+console.log(getItemsByBrand(getItemsByAuthor(products.items, "eBay")), "Nikon");

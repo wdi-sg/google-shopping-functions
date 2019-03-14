@@ -38,7 +38,7 @@ function getItemsByBrand (items, brand) {
 		// if (items[i]["brand"] === "Sony" || itemByProduct[i]["brand"] === "Canon" || itemByProduct[i]["brand"] === "Nikon" || itemByProduct[i]["brand"] === "Panasonic") {
 		// 	results.push(itemByProduct);
 		// }
-		if(items[i]["product"]["brand"] === brand){
+		if (items[i].product.brand === brand) {
 			results.push(items[i].product.title);
 		}
 	}
@@ -87,15 +87,15 @@ function getAvailableSonyProducts (items) {
 	return results;
 }
 
-function getEbayNikonProducts (items) {
-	var results = [];
-	for (m=0; m < items.length; m++) {
-		if (items[m].product.author.name === "eBay" && items[m].product.brand === "Nikon") {
-			results.push(items[m].product.title)
-		} 
-	}
-	return results;
-}
+// function getEbayNikonProducts (items) {
+// 	var results = [];
+// 	for (m=0; m < items.length; m++) {
+// 		if (items[m].product.author.name === "eBay" && items[m].product.brand === "Nikon") {
+// 			results.push(items[m].product.title)
+// 		} 
+// 	}
+// 	return results;
+// }
 
 
 
