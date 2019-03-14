@@ -14,6 +14,9 @@ function getItemsByBrand(items, brandName) {
       brandArray.push(items[i]);
     }
   }
+  console.log("Array of " + brandName + ":");
+  console.log(brandArray);
+  
   return brandArray;
 }
 
@@ -26,6 +29,10 @@ function getItemsByAuthor(items, authorName) {
       authorArray.push(items[i]);
     }
   }
+  console.log("Array of " + authorName + ":");
+  console.log(authorArray);
+  
+  
   return authorArray;
 }
 
@@ -38,5 +45,20 @@ function getAvailableProducts(items) {
       availableArray.push(items[i]);
     }
   }
+  console.log("Available items: ");
+  console.log(availableArray);
+  
   return availableArray;
 }
+
+var sonyItems = getItemsByBrand(items, "sony");
+
+var sonyAvailableItems = getAvailableProducts(sonyItems);
+
+var authorAdoramaItems = getItemsByAuthor(items, "adorama camera");
+
+var nikonItems = getItemsByBrand(items, "nikon");
+
+var nikonEbayItems = getItemsByAuthor(nikonItems, "ebay");
+
+var userSearchTerm = prompt("What are you searching for?")
