@@ -19,6 +19,7 @@ function getItems(objectData) {
 }
 
 var brandItems = [];
+var brandItemsDetails = [];
 
 function getItemsByBrand(items,brand) {
   for (var i = 0; i < items.length; i++) {
@@ -26,9 +27,10 @@ function getItemsByBrand(items,brand) {
 
     if (brand === productBrand) {
       brandItems.push(products["items"][i]["product"]["title"]);
+      brandItemsDetails.push(products["items"][i]);
     }
   }
-  return brandItems;
+  return brandItemsDetails;
 }
 
 /* 3. Get a list of products by specifying author's name. */
@@ -65,24 +67,29 @@ function getAvailableProducts(items) {
   return availableProducts;
 }
 
+// function to only show items below a specified price
+
+function showProductsBelowPrice(price) {
+  for (var i = 0; i < items.length; i++) {
+    if (products["items"][i]["product"]["inventories"][0]["price"] < price) {
+      productsBelowPrice.push(products["items"][i]["product"]["title"]);
+    }
+  }
+  return productsBelowPrice;
+}
+
+function minMaxPrice(min,max) {
+
+  for (var i = 0; i < items.length; i++) {
+
+    if (products["items"][i]["product"]["inventories"][0]["price"] < max && products["items"][i]["product"]["inventories"][0]["price"] > min) {
+
+        minMaxProducts.push(products["items"][i]["product"]["title"]);
+    }
+  }
+  return minMaxProducts;
+}
+
 /* 5. Use your functions. */
-
-// var result = [];
-
-// function compare(array1,array2) {
-//   for (var i = 0; i < array1.length; i++) {
-//     for(var j = 0; j < array2.length; j++ ) {
-//       if(array1[i] === array2[j]) {
-//         result.push(products["items"][i]["product"]["title"]);
-//       }
-//     }
-//   }
-//   return result;
-// }
-
-
-// output item count using the getItemsCount function
-
-
-// console.log('Item Count: ' + getItemsCount(data));
+// Answered in script.js
 
