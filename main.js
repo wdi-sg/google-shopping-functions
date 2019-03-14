@@ -1,3 +1,4 @@
+var resultsCounter = 0;
 var getItems = function(objectData) {
   return objectData.items;
   //items is an array of item Objects
@@ -12,11 +13,12 @@ function getItemsByBrand(items, brandName) {
     var brandResult = items[i].product.brand.toLowerCase();
     if (brandResult.includes(brandName.toLowerCase())) {
       brandArray.push(items[i]);
+      resultsCounter++;
     }
   }
   console.log("Array of " + brandName + ":");
   console.log(brandArray);
-  
+
   return brandArray;
 }
 
@@ -27,12 +29,12 @@ function getItemsByAuthor(items, authorName) {
     var authorResult = items[i].product.author.name.toLowerCase();
     if (authorResult.includes(authorName.toLowerCase())) {
       authorArray.push(items[i]);
+      resultsCounter++;
     }
   }
   console.log("Array of " + authorName + ":");
   console.log(authorArray);
-  
-  
+
   return authorArray;
 }
 
@@ -40,25 +42,94 @@ function getAvailableProducts(items) {
   var availableArray = [];
   for (let i = 0; i < items.length; i++) {
     //author reseult found in lowercase
-    var availableResult = items[i].product.inventories[0].availability.toLowerCase();
+    var availableResult = items[
+      i
+    ].product.inventories[0].availability.toLowerCase();
     if (availableResult.includes("instock")) {
       availableArray.push(items[i]);
     }
   }
   console.log("Available items: ");
   console.log(availableArray);
-  
+
   return availableArray;
 }
 
-var sonyItems = getItemsByBrand(items, "sony");
+function numOfProductItems(items) {
+  console.log("Total number of products is " + items.length);
+  if (items.length > 0) {
+    resultsCounter++;
+  }
+}
 
-var sonyAvailableItems = getAvailableProducts(sonyItems);
+function countryOfEachItem(items) {
+  for (let i = 0; i < items.length; i++) {
+    var country = items[i].product.country;
+    var title = items[i].product.title;
+    console.log(country);
+  }
+  if (items.length > 0) {
+    resultsCounter++;
+  }
+}
 
-var authorAdoramaItems = getItemsByAuthor(items, "adorama camera");
+function totalPriceOfAllInventory(items) {
+    var totalPrice = 0;
+    for (let i = 0; i < items.length; i++) {
+        var price = items[i].product.inventories[0].price;
+        totalPrice = totalPrice + price;
+    }
+    if (items.length > 0) {
+        resultsCounter++;
+    }
+    console.log("Total prie of all inventory is " + totalPrice);
+}
+function userPromptBrand() {
+  var userSearchTerm = prompt("What are you searching for?");
+  getItemsByBrand(items, userSearchTerm);
+}
+function userPromptAuthor() {
+  var userSearchTerm = prompt("What are you searching for?");
+  getItemsByAuthor(items, userSearchTerm);
+}
 
-var nikonItems = getItemsByBrand(items, "nikon");
+function userPrompt() {
+  var userSearchTerm = prompt(
+    "Enter the number for action to execute: 1 for number of products 2 for country of items 3 for Total price of inventory 4 to search for brands and 5 to search through authors"
+  );
+  switch (userSearchTerm) {
+    case "1":
+      numOfProductItems(items);
+      break;
+    case "2":
+      countryOfEachItem(items);
+      break;
+    case "3":
+      totalPriceOfAllInventory(items);
+      break;
+    case "4":
+      userPromptBrand();
+      break;
+    case "5":
+      userPromptAuthor();
+      break;
+    default:
+      break;
+  }
+}
 
-var nikonEbayItems = getItemsByAuthor(nikonItems, "ebay");
+function part_5() {
+  var sonyItems = getItemsByBrand(items, "sony");
 
-var userSearchTerm = prompt("What are you searching for?")
+  var sonyAvailableItems = getAvailableProducts(sonyItems);
+
+  var authorAdoramaItems = getItemsByAuthor(items, "adorama camera");
+
+  var nikonItems = getItemsByBrand(items, "nikon");
+
+  var nikonEbayItems = getItemsByAuthor(nikonItems, "ebay");
+}
+userPrompt();
+if (resultsCounter === 0) {
+  alert("No results found!");
+}
