@@ -54,6 +54,23 @@ var getItemsByAuthor = function(items,itemAuthor) {
 
 console.log(getItemsByAuthor(items,"eBay"));
 
+//Question 4
+console.log("Question 4");
+
+
+var getAvailableProducts = function(items) {
+  var availabilityArr = [];
+
+  for ( var i = 0; i < items.length; i++){
+    if(items[i].product.inventories[0].availability === "inStock") {
+      availabilityArr.push(items[i]);
+    }
+  }
+  return availabilityArr;
+}
+
+console.log(getAvailableProducts(items));
+
 
 
 
