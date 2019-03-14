@@ -54,11 +54,33 @@ function getItemsByAuthor(items, vendor) {
   }
 } //GET BACK TO THIS LATER
 
+// for (i=0; i<products.items.length; i++) {
+//   var authorName = products.items[i].product.author.name
+//   var itemBrand = products.items[i].product.brand
+//   if (authorName.includes ("eBay") && itemBrand === "Canon") {
+//   console.log(products.items[i].product.title);
+//   }
+// }
+
 getItemsByAuthor(productsArray,"eBay");
 
 if (products.items[0].product.author.name === "pictureline.com") {
 console.log(products.items[0].product.author.name);
 }
+
+
+// 4.) getAvailableProducts(items)
+// input: an array of items
+// returns: an array of items (that are available)
+
+function getAvailableProducts(items) {
+  for (i = 0; i < items.length; i++) {
+    if (items[i].product.inventories[0].availability === 'inStock') {
+      console.log(items[i].product.title);
+    }
+  }
+}
+getAvailableProducts(productsArray);
 
 
 
