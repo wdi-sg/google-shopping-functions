@@ -24,4 +24,25 @@ function getItems(objectData) {
   return objectData.items;
 }
 
-console.log(getItems(products));
+var productsArray = getItems(products);
+console.log(productsArray);
+
+
+// // 2.) getItemsByBrand(items, brand)
+// input: an array of items, a string of a brand to filter with
+// returns: an array of items (of a specific brand)
+
+function getItemsByBrand(items,itemBrand) {
+  for (i = 0; i < items.length; i ++) {
+    if (items[i].product.brand === itemBrand) {
+        console.log(items[i].product.title);
+      }
+    }
+  }
+
+getItemsByBrand(productsArray,"Canon");
+
+
+
+
+
