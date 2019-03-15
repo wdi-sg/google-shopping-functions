@@ -82,7 +82,7 @@ function minMaxPrice(min,max) {
 
   for (var i = 0; i < items.length; i++) {
 
-    if (products["items"][i]["product"]["inventories"][0]["price"] < max && products["items"][i]["product"]["inventories"][0]["price"] > min) {
+    if (products["items"][i]["product"]["inventories"][0]["price"] <= max && products["items"][i]["product"]["inventories"][0]["price"] >= min) {
 
         minMaxProducts.push(products["items"][i]["product"]["title"]);
     }
