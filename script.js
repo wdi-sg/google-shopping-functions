@@ -6,7 +6,7 @@ var brandArray = getItemsByBrand(productsArray,"Sony");
 
 var authorArray = getItemsByAuthor(productsArray, "eBay");
 
-var availableArray = getAvailableProducts(availableArray, "inStock");
+var availableArray = getAvailableProducts(productsArray, "inStock");
 
 // console.log("Create a function called by getItemsByBrand")
 

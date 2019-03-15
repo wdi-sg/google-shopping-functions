@@ -41,7 +41,6 @@ function getItemsByAuthor(array, brandAuthor){
   return(authorArray);
 }
 
-//NOT WORKING YET
 function getAvailableProducts(array, availableProducts){
   var availableArray = [];
   for (var i = 0; i < array.length; i++){
@@ -52,6 +51,26 @@ function getAvailableProducts(array, availableProducts){
   console.log(availableArray);
   return(availableArray);
 }
+
+// var availableArray = getAvailableProducts(availableArray, "inStock");
+// // 4.) getAvailableProducts(items)
+// // input: an array of items
+// // returns: an array of items (that are available)
+
+// function getAvailableProducts(items) {
+//   var newArray = [];
+//   for (i = 0; i < items.length; i++) {
+//     if (items[i].product.inventories[0].availability === "inStock") {
+//       newArray.push(items[i]);
+//     }
+//   }
+//   return newArray;
+// }
+// getAvailableProducts(productsArray);
+
+// console.log(getAvailableProducts(productsArray));
+
+
 
 // output item count using the getItemsCount function
 // console.log('Item Count: ' + getItemsCount(data));
