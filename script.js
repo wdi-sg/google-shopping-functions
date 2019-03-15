@@ -79,7 +79,19 @@ console.log(items);
 console.log(getItemsByBrand(items,"Sony"));
 console.log(getAvailableProducts(getItemsByBrand(items, "Sony")));
 console.log(getItemsByAuthor(items, "Adorama Camera"))
-console.log(getItemsByBrand(getItemsByAuthor(items, "ebay"),"Nikkon"));
+
+
+var getBrandAuthor = function (items,itemBrand,itemAuthor){
+  var comboArr=[]
+  for ( var i = 0; i < items.length; i++){
+    if ((getItemsByBrand === itemBrand) && (getItemsByAuthor == includes(itemAuthor))){
+        comboArr.push(items[i]);
+    }
+  }
+  return comboArr;
+}
+
+console.log(getBrandAuthor(items, "Nikon","ebay"));
 
 
 //Question 6
