@@ -39,7 +39,7 @@ var getItemsByBrand = function(itemArray,brand){
 var getItemsByAuthor = function(items,author){
   var gia = [];
   for (var i = 0; i < items.length; i++) {
-    if (items[i].product.author.name.includes("eBay")) {
+    if (items[i].product.author.name.includes(author)) {
       gia.push(items[i]);
     }
   }
