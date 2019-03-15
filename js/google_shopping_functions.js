@@ -67,11 +67,30 @@ console.log(getAvailableProducts(getItems(products)));
 
 
 
+
+var items = getItems(products);
+
+
 //outputs all Sony products
-console.log(getItemsByBrand(getItems(products), "Sony"));
+console.log(getItemsByBrand(items, "Sony"));
 //outputs all available Sony products
-console.log(getAvailableProducts(getItemsByBrand(getItems(products), "Sony")));
+console.log(getAvailableProducts(getItemsByBrand(items, "Sony")));
 //outputs all available items by the author "Adorama Camera"
-console.log(getAvailableProducts(getItemsByAuthor(getItems(products), "Adorama Camera")));
+console.log(getAvailableProducts(getItemsByAuthor(items, "Adorama Camera")));
 //outputs All items made by Nikon with the author eBay
-console.log(getItemsByBrand(getItemsByAuthor(getItems(products), "eBay"), "Nikon"));
+console.log(getItemsByBrand(getItemsByAuthor(items, "eBay"), "Nikon"));
+
+
+
+
+
+
+
+// //outputs all Sony products
+// console.log(getItemsByBrand(getItems(products), "Sony"));
+// //outputs all available Sony products
+// console.log(getAvailableProducts(getItemsByBrand(getItems(products), "Sony")));
+// //outputs all available items by the author "Adorama Camera"
+// console.log(getAvailableProducts(getItemsByAuthor(getItems(products), "Adorama Camera")));
+// //outputs All items made by Nikon with the author eBay
+// console.log(getItemsByBrand(getItemsByAuthor(getItems(products), "eBay"), "Nikon"));
