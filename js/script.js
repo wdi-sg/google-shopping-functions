@@ -47,7 +47,7 @@ if (nikonByEbay.length === 0) {
 
 ///////////////////////////////  FURTHER EXERCISE  /////////////////////////
 // Prompt the user for the search term they are looking for.
-var choice = Number(prompt("Enter 1 for Number of Products \nEnter 2 for Country of each Item \nEnter 3\nEnter 4 for  for Total Price of Inventory \nEnter 4 to Search for Items" ))
+var choice = Number(prompt("Enter 1 for Number of Products \nEnter 2 for Country of each Item \nEnter 3 for Total Price of Inventory \nEnter 4 to Search for Items" ))
 if (choice === 1) {
   console.log("Items count: " + itemsArray.length);
 } else if (choice === 2) {
