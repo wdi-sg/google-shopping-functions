@@ -1,92 +1,74 @@
+var count = 0;
+for (var i = 0; i < products["items"].length; i++) {
+  console.log(products["items"][i].kind);
+  if (products["items"][i].kind === "shopping#product") {
+    count++;
+  }
+}
+console.log(count + " items with shopping#product tag in 'kind'");
+console.log("products with 'backorder' in 'availability' listed below.");
+for (var i = 0; i < products["items"].length; i++) {
+  if( products["items"][i].product.inventories[0].availability === "backorder") {
+    console.log(products["items"][i].product.title);
+  }
+}
+console.log("products with more than 1 image link listed below.");
+for (var i = 0; i < products["items"].length; i++) {
+  if(products["items"][i].product.images.length > 1){
+    console.log(products["items"][i].product.title);
+  }
+}
+console.log("products with brand Canon listed below.");
+for (var i = 0; i < products["items"].length; i++) {
+  if(products["items"][i].product.brand === "Canon" ){
+    console.log(products["items"][i].product.title);
+  }
+}
+console.log("products with author eBay listed below.");
+for (var i = 0; i < products["items"].length; i++) {
+  if(products["items"][i].product.author.name.slice(0, 4) === "eBay" ){
+    console.log(products["items"][i].product.title);
+  }
+}
+console.log("All products with their brand, price and first image link listed below");
+for (var i = 0; i < products["items"].length; i++) {
+  console.log(products["items"][i].product.brand);
+  console.log(products["items"][i].product.inventories[0].price);
+  console.log(products["items"][i].product.images[0]);
 }
 
-function totalPriceOfAllInventory(items) {
-    var totalPrice = 0;
-    for (let i = 0; i < items.length; i++) {
-        var price = items[i].product.inventories[0].price;
-        totalPrice = totalPrice + price;
+//Further
+var uiChoiceBrandCondition = prompt("Search for brand or condition or both");
+var searchCounter = 0;
+if (uiChoiceBrandCondition === "both") {
+  var uiBrand = prompt("Enter Product Brand to search for:");
+  var uiCondition = prompt("Enter 'new' to see new items only, enter 'used' to see used items");
+  console.log("Search results for " + uiCondition + " " + uiBrand + ":");
+  for (var i = 0; i < products["items"].length; i++) {
+    if( (products["items"][i].product.brand === uiBrand) && (products["items"][i].product.condition === uiCondition) ){
+      console.log(products["items"][i].product.title);
+      searchCounter++;
     }
-    if (items.length > 0) {
-        resultsCounter++;
+  }
+} else if (uiChoiceBrandCondition === "condition") {
+  var uiCondition = prompt("Enter 'new' to see new items only, enter 'used' to see used items");
+  console.log("Search results for " + uiCondition + ":");
+  for (var i = 0; i < products["items"].length; i++) {
+    if( products["items"][i].product.condition === uiCondition ){
+      console.log(products["items"][i].product.title);
+      searchCounter++;
     }
-    console.log("Total prie of all inventory is " + totalPrice);
-  var totalPrice = 0;
-  for (let i = 0; i < items.length; i++) {
-    var price = items[i].product.inventories[0].price;
-    totalPrice = totalPrice + price;
   }
-  if (items.length > 0) {
-    resultsCounter++;
+} else if (uiChoiceBrandCondition === "brand") {
+  var uiBrand = prompt("Enter Product Brand to search for:");
+  console.log("Search results for " + uiBrand + ":");
+  for (var i = 0; i < products["items"].length; i++) {
+    if( products["items"][i].product.brand === uiBrand ){
+      console.log(products["items"][i].product.title);
+      searchCounter++;
+    }
   }
-  console.log("Total prie of all inventory is " + totalPrice);
 }
-function userPromptBrand() {
-  var userSearchTerm = prompt("What are you searching for?");
-@@ -92,10 +92,53 @@ function userPromptAuthor() {
-  var userSearchTerm = prompt("What are you searching for?");
-  getItemsByAuthor(items, userSearchTerm);
+if ( searchCounter === 0 ) {
+  alert("Sorry, nothing found!");
 }
-function maximumOrMinimum() {
-  var maxOrMin = prompt(
-    "Enter '1' to set a maximum price or '2' for minimum price"
-  );
-  var maxMinArray = [];
-  if (maxOrMin === "1") {
-    var maxPrice = prompt("Enter max price");
-    for (let i = 0; i < items.length; i++) {
-      //author reseult found in lowercase
-      var price = items[i].product.inventories[0].price;
-      if (price <= maxPrice) {
-        maxMinArray.push(items[i]);
-        resultsCounter++;
-      }
-    }
-  } else if (maxOrMin === "2") {
-    var minPrice = prompt("Enter min price");
-    for (let i = 0; i < items.length; i++) {
-      //author reseult found in lowercase
-      var price = items[i].product.inventories[0].price;
-      if (price >= minPrice) {
-        maxMinArray.push(items[i]);
-        resultsCounter++;
-      }
-    }
-  }
-  console.log(maxMinArray);
-}
-function maximumAndMinimum() {
-  var maxPrice = prompt("Enter max price");
-  var minPrice = prompt("Enter min price");
-  var maxMinArray = [];
-  for (let i = 0; i < items.length; i++) {
-    //author reseult found in lowercase
-    var price = items[i].product.inventories[0].price;
-    if (price <= maxPrice && price >= minPrice) {
-      maxMinArray.push(items[i]);
-      resultsCounter++;
-    }
-  }
-
-  console.log(maxMinArray);
-}
-
-function userPrompt() {
-  var userSearchTerm = prompt(
-    "Enter the number for action to execute: 1 for number of products 2 for country of items 3 for Total price of inventory 4 to search for brands and 5 to search through authors"
-    "Enter the number for action to execute: 1 for number of products 2 for country of items, 3 for Total price of inventory, 4 to search for brands, 5 to search through authors 6 to search via max or min price "
-  );
-  switch (userSearchTerm) {
-    case "1":
-@@ -113,6 +156,12 @@ function userPrompt() {
-    case "5":
-      userPromptAuthor();
-      break;
-    case "6":
-      maximumOrMinimum();
-      break;
-    case "7":
-      maximumAndMinimum();
-      break;
-    default:
-      break;
-  }
