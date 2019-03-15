@@ -79,19 +79,21 @@ console.log(items);
 console.log(getItemsByBrand(items,"Sony"));
 console.log(getAvailableProducts(getItemsByBrand(items, "Sony")));
 console.log(getItemsByAuthor(items, "Adorama Camera"))
+console.log(getItemsByAuthor(getItemsByBrand(items,"Nikon"),"eBay"));
 
+// tried to see if I can use a function to derive the last question through an if formula - didn't work
+// var getBrandAuthor = function (itemms,itemBrand,itemAuthor){
+//   var comboArr=[]
+//   for ( var i = 0; i < itemms.length; i++){
+//     if ((getItemsByBrand === itemBrand) {
+//       if (getItemsByAuthor === includes.itemAuthor){
+//         comboArr.push(itemms[i]);
+//     }
+//   }
+//   return comboArr;
+// }
 
-var getBrandAuthor = function (items,itemBrand,itemAuthor){
-  var comboArr=[]
-  for ( var i = 0; i < items.length; i++){
-    if ((getItemsByBrand === itemBrand) && (getItemsByAuthor == includes(itemAuthor))){
-        comboArr.push(items[i]);
-    }
-  }
-  return comboArr;
-}
-
-console.log(getBrandAuthor(items, "Nikon","ebay"));
+// console.log(getBrandAuthor(items, "Nikon","ebay"));
 
 
 //Question 6
