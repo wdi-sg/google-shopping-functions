@@ -24,7 +24,7 @@ var availSony = getAvailableProducts(itemsBySony);
 
 
 // All available items by the author "Adorama Camera"
-var adorama = getItemsByAuthor(itemsArray, "eBay");
+var adorama = getItemsByAuthor(itemsArray, "Adorama Camera");
 var availAdorama = getAvailableProducts(adorama)
 if (availAdorama.length === 0) {
   //console.log("No stock.")
