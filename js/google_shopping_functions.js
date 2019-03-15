@@ -161,11 +161,12 @@ if(response == 1) {
   console.log(items.length);
 } else if(response == 2) {
 
-  var itemsCountries = []
+  var itemsCountriesArray = []
   for(var i=0; i<items.length; i++) {
     itemsCountries = items[i]["product"]["country"];
-    console.log(itemsCountries);
+    itemsCountriesArray.push(itemsCountries);
   }
+  console.log(itemsCountriesArray);
 
 } else if(response == 3) {
 
