@@ -13,58 +13,54 @@
  * Define and use your functions here
  */
 
-function getItems(objectData) {
-  var items = products["items"];
-  return items;
+function getItems(itemData) {
+  return itemData.items;
 }
 
-var brandItems = [];
-var brandItemsDetails = [];
+//
 
 function getItemsByBrand(items,brand) {
-  for (var i = 0; i < items.length; i++) {
-    var productBrand = products["items"][i]["product"]["brand"];
 
-    if (brand === productBrand) {
-      brandItems.push(products["items"][i]["product"]["title"]);
-      brandItemsDetails.push(products["items"][i]);
+  var result = [];
+
+  for (var i = 0; i < items.length; i++) {
+    var productBrand = items[i]["product"]["brand"].toLowerCase();
+
+    if (productBrand === brand.toLowerCase()) {
+      result.push(items[i]);
     }
   }
-  return brandItemsDetails;
+  return result;
 }
 
 /* 3. Get a list of products by specifying author's name. */
 
-var itemsAuthor = [];
 
 function getItemsByAuthor(items,author) {
-  // console.log(author)
+
+  var result = [];
+
   for (var i = 0; i < items.length; i++) {
-    var authorName = products["items"][i]["product"]["author"]["name"].toLowerCase();
-    author = author.toLowerCase();
-    if (authorName.includes(author) || authorName === author) {
-      itemsAuthor.push(products["items"][i]["product"]["title"]);
+    var authorName = items[i]["product"]["author"]["name"].toLowerCase();
+
+    if (authorName.includes(author)) {
+      result.push(items[i]);
     }
   }
-  return itemsAuthor;
+  return result;
 }
 
-// console.log(itemsAuthor);
-
-/* 4. Get a list of products by specifying author's name. */
-
-var availableProducts = [];
-var availProductsDetails = [];
+/* 4. Get a list of available names. */
 
 function getAvailableProducts(items) {
 
+  var result = [];
   for (var i = 0; i < items.length; i++) {
-    if (products["items"][i]["product"]["inventories"][0]["availability"] === "inStock") {
-    availableProducts.push(products["items"][i]["product"]["title"]);
-    availProductsDetails.push(products["items"][i]);
+    if (items[i]["product"]["inventories"][0]["availability"] === "inStock") {
+      result.push(items[i]);
     }
   }
-  return availableProducts;
+  return result;
 }
 
 // function to only show items below a specified price
