@@ -9,6 +9,7 @@
 /* Use your functions */
 
 var items = products["items"];
+console.log(items);
 
 // // 1. All items made by Sony.
 var sony = getItemsByBrand(getItems(),"Sony");
